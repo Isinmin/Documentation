@@ -1,0 +1,2853 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="windows-1251">
+    <title>Документация</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="js/functions.js"></script> <link rel="stylesheet" href="tomorrow-night-eighties.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+
+<body onload="windowSize();autoClickMenu()">
+<div class="akkordeon">
+<ul class="vmenu">
+  <li id="information" onclick="checkMenuButton(this)"><a>Общая информация по API</a></li>
+  <li><a><span>Пользователи системы</span></a>
+      <ul class="dropdown">
+      <li id="login" onclick="checkMenuButton(this)"><a><span>Авторизация</span></a></li>
+      <li id="logout" onclick="checkMenuButton(this)"><a><span>Выход</span></a></li>
+      <li id="logoutGlobal" onclick="checkMenuButton(this)"><a><span>Глобальный выход</span></a></li>
+      </ul>  
+  </li>
+  <li><a><span>Объекты систем</span></a>
+      <ul class="dropdown">
+      <li id="objects" onclick="checkMenuButton(this)"><a><span>Доступные объекты</span></a></li>
+      <li id="get" onclick="checkMenuButton(this)"><a><span>Получение информации</span></a></li>
+      </ul>
+  </li>
+  <li><a><span>Модемы системы</span></a>
+        <ul class="dropdown">
+            <li id="modems" onclick="checkMenuButton(this)"><a><span>Список модемов</span></a></li>
+        </ul>
+  </li>
+    <li><a><span>Приборы учета</span></a>
+        <ul class="dropdown">
+            <li id="devices" onclick="checkMenuButton(this)"><a><span>Список приборов</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>Точки учета</span></a>
+        <ul class="dropdown">
+            <li id="miniListForObject" onclick="checkMenuButton(this)"><a><span>Список точек для объекта</span></a></li>
+            <li id="listForDevelopment" onclick="checkMenuButton(this)"><a><span>Список точек для разработки</span></a></li>
+        </ul>
+    </li>
+
+    <li><a><span>Организации</span></a>
+        <ul class="dropdown">
+            <li id="organizations" onclick="checkMenuButton(this)"><a><span>Список организаций</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>Данные</span></a>
+        <ul class="dropdown">
+            <li id="data" onclick="checkMenuButton(this)"><a><span>Получение нормализованных данных</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>Задачи</span></a>
+        <ul class="dropdown">
+            <li id="connect" onclick="checkMenuButton(this)"><a><span>Подключение модема к серверу</span></a></li>
+            <li id="disconnect" onclick="checkMenuButton(this)"><a><span>Отключение модема от сервера</span></a></li>
+            <li id="activateDevice" onclick="checkMenuButton(this)"><a><span>Активация прибора учета</span></a></li>
+            <li id="activateTV" onclick="checkMenuButton(this)"><a><span>Активация точки учета</span></a></li>
+            <li id="readData" onclick="checkMenuButton(this)"><a><span>Чтение данных с точки</span></a></li>
+            <li id="readDeviceProperties" onclick="checkMenuButton(this)"><a><span>Чтение параметров прибора</span></a></li>
+            <li id="readTVProperties" onclick="checkMenuButton(this)"><a><span>Чтение параметров точки</span></a></li>
+            <li id="writeDeviceProperties" onclick="checkMenuButton(this)"><a><span>Запись параметров прибора</span></a></li>
+            <li id="writeTVProperties" onclick="checkMenuButton(this)"><a><span>Запись параметров точки</span></a></li>
+            <li id="synchronizeTime" onclick="checkMenuButton(this)"><a><span>Синхронизация времени</span></a></li>
+            <li id="exchange" onclick="checkMenuButton(this)"><a><span>Обмен сообщениями</span></a></li>
+        </ul>
+    </li>
+
+    <li><a><span>Пользовательские теги</span></a>
+        <ul class="dropdown">
+            <li id="change" onclick="checkMenuButton(this)"><a><span>Создание и удаление тегов</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>Поиск записей</span></a>
+        <ul class="dropdown">
+            <li id="tags" onclick="checkMenuButton(this)"><a><span>Доступные теги</span></a></li>
+            <li id="organizationsSearch" onclick="checkMenuButton(this)"><a><span>Поиск организаций</span></a></li>
+            <li id="typeObjects" onclick="checkMenuButton(this)"><a><span>Поиск типов объектов</span></a></li>
+            <li id="modeObjects" onclick="checkMenuButton(this)"><a><span>Поиск режимов работы объекта</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>Настройка столбцов</span></a>
+        <ul class="dropdown">
+            <li id="edit" onclick="checkMenuButton(this)"><a><span>Редактирование</span></a></li>
+            <li id="reset" onclick="checkMenuButton(this)"><a><span>Сброс</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>Настройка фильтров</span></a>
+        <ul class="dropdown">
+            <li id="filters" onclick="checkMenuButton(this)"><a><span>Доступные фильтры</span></a></li>
+            <li id="add" onclick="checkMenuButton(this)"><a><span>Создание пользовательского фильтра</span></a></li>
+            <li id="filtersEdit" onclick="checkMenuButton(this)"><a><span>Редактирование пользовательского фильтра</span></a></li>
+            <li id="delete" onclick="checkMenuButton(this)"><a><span>Удаление пользовательского фильтра</span></a></li>
+        </ul>
+    </li>
+
+    <li><a><span>Настройки системы</span></a>
+        <ul class="dropdown">
+            <li id="settings" onclick="checkMenuButton(this)"><a><span>Отображение элементов</span></a></li>О
+        </ul>
+    </li>
+    <li><a><span>Работа с главными страницами</span></a>
+        <ul class="dropdown">
+            <li id="dashboards" onclick="checkMenuButton(this)"><a><span>Список страниц</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>Работа с виджетами</span></a>
+        <ul class="dropdown">
+            <li id="widgets" onclick="checkMenuButton(this)"><a><span>Список виджетов</span></a></li>
+            <li id="userList" onclick="checkMenuButton(this)"><a><span>Список виджетов для заданного объекта</span></a></li>
+            <li id="widgetsList" onclick="checkMenuButton(this)"><a><span>Список виджетов на странице</span></a></li>
+            <li id="changeWidgets" onclick="checkMenuButton(this)"><a><span>Добавление и удаление виджетов</span></a></li>
+            <li id="resetWidgets" onclick="checkMenuButton(this)"><a><span>Сброс настроек</span></a></li>
+            <li id="copyToDashboard" onclick="checkMenuButton(this)"><a><span>Копирование виджетов</span></a></li>
+        </ul>
+    </li>
+    <li><a><span>SIM карты </span></a>
+        <ul class="dropdown">
+            <li id="number" onclick="checkMenuButton(this)"><a><span>Получение номера телефона</span></a></li>
+            <li id="iccid" onclick="checkMenuButton(this)"><a><span>Получение номера ICCID </span></a></li>
+        </ul>
+    </li>
+    <li id="messages" onclick="checkMenuButton(this)"><a>Структура сообщений</a></li>
+    <li id="status" onclick="checkMenuButton(this)"><a><span>Status-коды сущностей</span></a>
+    </li>
+</ul>
+</div>
+<!-- Общее -->
+<div class="textWindow" onload="windowSize();" id="informationWindow">
+    <div class="headLine">  <a href="https://api.eldis24.ru/">https://api.eldis24.ru/</a> Общая информация по API</div>
+    <div style="margin-bottom: 40px">
+        <p>Для работы с API необходимо в каждом запросе передавать ключ доступа к API.Ключ передается в заголовке запроса с именем <b class="someCode">key</b>.
+        Все даты, передаваемые/получаемые через json формируются как <b class="someCode">TimeStamp</b>.</p>
+    </div>
+    <table>
+        <caption><h2>Глобальные переменные передаваемые через URL:</h2></caption>
+        <tr>
+            <th style="width:20%">Параметр</th>
+            <th style="width:65%">Описание</th>
+            <th style="width:15%">Тип данных</th>
+        </tr>
+        <tr>
+            <td>suppressResponseCode</td>
+            <td>Подавляет код ответа http.
+                Если указать значение параметра <b style="font-family: Consolas">true</b>, то http ответ всегда будет возвращаться со статусом 200 – ОК.
+                Значение по умолчанию – <b style="font-family: Consolas">true</b>.
+            </td>
+            <td>bool</td>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>Максимальное количество возвращаемых записей для одного запроса.
+                Значение по умолчанию – 50.
+                Максимальное количество возвращаемых записей – 500.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>page</td>
+            <td>Номер страницы, по которой будет возвращено указанное количество записей параметром <b style="font-family: Consolas">limit</b>.
+                Значение по умолчанию – 1.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>search</td>
+            <td>Осуществляет поиск записей.</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>entity</td>
+            <td>Название сущности/метода для которой применяется вложенный запрос.</td>
+            <td>string</td>
+        </tr>
+    </table>
+
+
+    <table>
+        <caption><h2>Глобальные ошибки:</h2></caption>
+        <div>
+            <tr>
+                <th style="width:20%">httpStatusCode</th>
+                <th style="width:20%">messageCode</th>
+                <th style="width:60%">message</th>
+
+            </tr>
+            <tr>
+                <td>403</td>
+                <td>4200008</td>
+                <td>Необходимо предоставить ключ доступа к API</td>
+            </tr>
+            <tr>
+                <td>401</td>
+                <td>4200002</td>
+                <td>Авторизация не пройдена</td>
+            </tr>
+            <tr>
+                <td>429</td>
+                <td>4200009</td>
+                <td>Превышен лимит количества запросов в час</td>
+            </tr>
+            <tr>
+                <td>402</td>
+                <td>4200010</td>
+                <td>Недоступно для Вашего тарифа</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>4200001</td>
+                <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+            </tr>
+        </div>
+    </table>
+</div>
+
+<!-- Авторизация -->
+<div class="textWindow" id="loginWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/users/login">https://api.eldis24.ru/api/v1/users/login</a>
+        Производит авторизацию пользователя в системе
+    </div>
+    <div style="margin-bottom: 40px"> <p>Все методы API будут доступны лишь при удачной авторизации пользователя.
+        При удачной авторизации пользователя в <b class="someCode"> cookie</b> файле будет возвращен токен доступа <b class="someCode"> access_token</b>, который необходимо передавать для вызова других методов API.
+        Время жизни токена 1 час, после чего токен будет обновлен и возвращен повторно при следующей активности пользователя.</p>
+    </div>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type:</h4> application/x-www-form-urlencoded
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie:</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <table>
+        <caption><h2>Parameters:</h2></caption>
+
+        <tr >
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr >
+            <td>login</td>
+            <td>form</td>
+            <td>Логин пользователя</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>form</td>
+            <td>Пароль пользователя</td>
+            <td>string</td>
+        </tr>
+    </table>
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "users": {
+          "login": {
+            "result": "bool" // Результат авторизации
+          }
+        },
+        "messages":  []  // Список сообщений
+      }
+    }
+    </code></pre>
+
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td >Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+
+    </table>
+</div>
+
+<!-- Выход-->
+<div class="textWindow" id="logoutWindow">
+    <div class="getLine"> <div class="post">GET</div> <a href="https://api.eldis24.ru/api/v1/users/logout">https://api.eldis24.ru/api/v1/users/login</a> Выход пользователя из системы в контексте текущей сессии</div>
+
+    <p >Осуществляет выход пользователя из системы в текущей сессии с удалением токена доступа из <b class="someCode">cookie</b> файла и БД.</p>
+    <h2>Response:</h2>
+    <pre><code>
+    {
+      "response": {
+        "users": {
+          "logout": {
+            "result": "bool" // Результат выхода
+          }
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Глобальный выход-->
+<div class="textWindow" id="logoutGlobalWindow">
+    <div class="getLine"> <div class="post">GET</div> <a href="https://api.eldis24.ru/api/v1/users/logoutGlobal">https://api.eldis24.ru/api/v1/users/login</a> Глобальный выход пользователя со всех устройств</div>
+    <p >Осуществляет глобальный выход пользователя со всех устройств с удалением токена доступа из <b class="someCode">cookie</b>  файла текущей сессии и удалением всех открытых сессий из БД.</p>
+    <h2>Response:</h2>
+    <pre><code>
+    {
+      "response": {
+        "users": {
+          "logoutGlobal": {
+            "result": "bool" // Результат выхода
+          }
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Доступные объекты-->
+<div class="textWindow" id="objectsWindow">
+    <div class="postLine"> <div class="post">POST</div> <a href="https://api.eldis24.ru/api/v1/objects/list">https://api.eldis24.ru/api/v1/objects/list</a>
+        Получение списка доступных объектов пользователя</div>
+    <p style="margin-bottom:40px">Осуществляет возможность получения списка доступных объектов пользователя, с возможностью фильтрации данных через пользовательские фильтры, поддерживает поисковые запросы, а так же пагинацию вывода данных.</p>
+    <h2>Headers:</h2>
+        <pre><code >
+        <h4>Content-Type:</h4> application/x-www-form-urlencoded
+        <h4>key</h4> = "you_key_here"
+        <h4>Cookie:</h4> access_token= "you_token_here"
+        </code></pre>
+    <table>
+        <caption><h2>Form's parameters:</h2></caption>
+        <tr>
+            <th width="20%">Параметр</th>
+            <th width="10%">Передавать через</th>
+            <th>Описание</th>
+            <th width="10%" >Тип данных</th>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>url</td>
+            <td>Количество записей, выводимых на одной странице.
+                Максимальное значение – 500.
+                Значение по умолчанию – 50.
+            </td>
+            <td>int</td>
+        </tr>
+
+        <tr>
+            <td>page</td>
+            <td>url</td>
+            <td>Номер отображаемой страницы.
+                Значение по умолчанию – 1.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>search</td>
+            <td>url</td>
+            <td>Осуществляет поиск данных</td>
+            <td>string</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption><h2>URL's parameters</h2></caption>
+        <tr>
+
+            <td>archive</td>
+            <td>form</td>
+            <td>Отображение архивных или не архивных записей</td>
+            <td>bool</td>
+        </tr>
+        <tr>
+            <td>filter.createdOn.from</td>
+            <td>form</td>
+            <td>Фильтрация объектов по дате создания >= указанного значения
+                Формат: dd.MM.yyyy
+            </td>
+            <td>DateTime</td>
+        </tr>
+        <tr>
+            <td>filter.createdOn.to</td>
+            <td>form</td>
+            <td>Фильтрация объектов по дате создания <= указанного значения
+                <b class="someCode"> Формат: dd.MM.yyyy</b>
+            </td>
+            <td>DateTime</td>
+        </tr>
+        <tr>
+            <td>filter.org.id</td>
+            <td>form</td>
+            <td>Фильтрация объектов по организациям.
+                ID организаций передавать через разделитель|
+            </td>
+            <td>Guid array</td>
+        </tr>
+        <tr>
+            <td>filter.type.id</td>
+            <td>form</td>
+            <td>Фильтрация объектов по типу объекта.
+                ID типов объекта передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+        <tr>
+            <td>filter.mode.id</td>
+            <td>form</td>
+            <td>Фильтрация объектов по режиму работы.</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>filter.tag.id</td>
+            <td>form</td>
+            <td>Фильтрация объектов по тегам.
+                ID тегов передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+    </table>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "objects": {
+          "fields": [ // Список доступных столбцов с их настройками отображения
+            {
+              "name": "string", // Название столбца
+              "displayName": "string", // Отображаемое название столбца
+              "ordinalPosition": "byte", // Порядковый номер столбца
+              "width": "short", // Ширина столбца
+              "visible": "bool", // Задает видимость столбца
+              "sortable": "bool", // Задает возможность сортировки данных по столбцу
+              "sorted": "string", // Задает направление сортировки (ASC, DESC)
+              "isSystem": "bool", // Указывает на то, что столбец является системным
+              "dataType": "string" // Тип данных столбца
+            }
+          ],
+          "list": [ // Список доступных объектов
+            {
+              "id": "Guid", // Идентификатор объекта
+              "isWinterMode": "bool", // Режим работы объекта (true – Зима; false – Лето;)
+              "address": "string", // Адрес объекта
+              "name": "string", // Название объекта
+              "consumer": "string", // Потребители
+              "createdOn": "TimeStamp/DateTime", // Дата создания
+              "tags": [ // Список доступных тегов, закрепленных за записью
+                {
+                  "id": "Guid", // Идентификатор тега
+                  "name": "string" // Название тега
+                }
+              ]
+            }
+          ],
+          "pagination": { // Информация по пагинации
+            "numberOfRows": "int", // Общее количество строк
+            "numberOfPages": "int", // Общее количество страниц
+            "currentPage": "int" // Номер текущей страницы
+          }
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+
+</div>
+
+<!-- Получение информации по заданному объекту-->
+<div class="textWindow" id="getWindow">
+    <div class="getLine"><div class="post">GET</div>  <a href="https://api.eldis24.ru/api/v1/objects/get">https://api.eldis24.ru/api/v1/objects/get</a>
+        Получение информации по заданному объекту</div>
+    <p >  Возвращает информацию для заданного объекта.</p>
+    <table>
+        <caption><h2>Parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>url</td>
+            <td>Идентификатор объекта</td>
+            <td>Guid</td>
+        </tr>
+    </table>
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "objects": {
+          "fields": [ // Список полей  с их настройками отображения
+            {
+              "name": "string", // Название поля
+              "visible": "bool", // Задает видимость поля
+              "enabled": "bool" // Задает доступность поля
+            }
+          ],
+          "get": { // Информация по объекту
+            "title": "string", // Заголовок страницы объекта
+            "address": "string", // Адрес объекта
+            "name": "string", // Название объекта
+            "typeObject": { // Тип объекта
+              "id": "Guid", // Идентификатор типа
+              "name": "string" // Название типа
+            },
+            "timeZoneName": "string", // Часовой пояс
+            "isWinterMode": "bool", // Режим работы (true – Зима; false – Лето;)
+            "modeChangeDate": "TimeStamp/DateTime/Nullable", // Дата переключения режима
+            "meteoStationName": "string", // Название метеостанции
+            "distanceToMeteoStation": "string", // Расстояние до метеостанции
+            "description": "string", // Примечание к объекту
+            "latitude": "double/Nullable", // Географическая широта
+            "longitude": "double/Nullable", // Географическая долгота
+              "tags": [ // Список доступных тегов, закрепленных за записью
+                {
+                  "id": "Guid", // Идентификатор тега
+                  "name": "string" // Название тега
+                }
+              ]
+          }
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Получение списка объектов-->
+<div class="textWindow" id="modemsWindow">
+    <div class="getLine"><div class="post">GET</div>  <a href="https://api.eldis24.ru/api/v1/modems/miniListForObject">https://api.eldis24.ru/api/v1/modems/miniListForObject</a>Получение списка модемов на заданном объекте</div>
+    <p>Осуществляет возможность получения списка доступных модемов пользователя для указанного объекта.</p>
+    <table>
+        <caption><h2>Parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>url</td>
+            <td>Идентификатор объекта</td>
+            <td>Guid</td>
+        </tr>
+    </table>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "modems": {
+          "fields": [ // Список доступных столбцов с их настройками отображения
+            {
+              "name": "string", // Название столбца
+              "displayName": "string", // Отображаемое название столбца
+              "ordinalPosition": "byte", // Порядковый номер столбца
+              "width": "short", // Ширина столбца
+              "visible": "bool", // Задает видимость столбца
+              "sortable": "bool", // Задает возможность сортировки данных по столбцу
+              "sorted": "string", // Задает направление сортировки (ASC, DESC)
+              "isSystem": "bool", // Указывает на то, что столбец является системным
+              "dataType": "string" // Тип данных столбца
+            }
+          ],
+          "miniListForObject": [ // Список доступных модемов
+            {
+              "id": "Guid", // Идентификатор модема
+              "status": "int",  // Статус модема
+              "name": "string",  // Название
+              "phone": "string", // Телефон
+              "lastConnection": "TimeStamp/DateTime/Nullable", // Дата последнего подключения
+              "tags": [ // Список доступных тегов, закрепленных за записью
+                {
+                  "id": "Guid", // Идентификатор тега
+                  "name": "string" // Название тега
+                }
+              ]
+            }
+          ]
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Получение списка приборов-->
+<div class="textWindow" id="devicesWindow">
+    <div class="getLine"><div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/devices/miniListForObject">https://api.eldis24.ru/api/v1/devices/miniListForObject</a>
+        Методы по работе с приборами учёта системы
+    </div>
+    <p>Осуществляет возможность получения списка доступных приборов учёта пользователя для указанного объекта.</p>
+    <table>
+        <caption><h2>Parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>url</td>
+            <td>Идентификатор объекта</td>
+            <td>Guid</td>
+        </tr>
+    </table>
+        <h2>Response:</h2>
+        <pre><code class="JSON">
+    {
+      "response": {
+        "devices": {
+          "fields": [ // Список доступных столбцов с их настройками отображения
+            {
+              "name": "string", // Название столбца
+              "displayName": "string", // Отображаемое название столбца
+              "ordinalPosition": "byte", // Порядковый номер столбца
+              "width": "short", // Ширина столбца
+              "visible": "bool", // Задает видимость столбца
+              "sortable": "bool", // Задает возможность сортировки данных по столбцу
+              "sorted": "string", // Задает направление сортировки (ASC, DESC)
+              "isSystem": "bool", // Указывает на то, что столбец является системным
+              "dataType": "string" // Тип данных столбца
+            }
+          ],
+          "miniListForObject": [ // Список доступных приборов учёта
+            {
+              "id": "Guid", // Идентификатор прибора учёта
+              "modemID": "Guid/Nullable", // Идентификатор модема
+              "deviceStatus": "int", // Статус прибора учёта
+              "deviceName": "string", // Название прибора учёта
+              "modemStatus": "int/Nullable", // Статус модема
+              "modemName": "string", // Название модема
+              "nextCalibrationName": "TimeStamp/DateTime/Nullable",  // Дата следующей поверки
+              "timeOnDevice": "string",  // Время на приборе учёта
+              "currentTask": "string", // Текущая задача
+              "tags": [ // Список доступных тегов, закрепленных за записью
+                {
+                  "id": "Guid", // Идентификатор тега
+                  "name": "string" // Название тега
+                }
+              ]
+            }
+          ]
+        },
+        "messages": [] // Список сообщений
+      }
+    }</code></pre>
+</div>
+
+<!-- Методы по работе с точками учета системы-->
+<div class="textWindow" id="miniListForObjectWindow">
+    <div class="getLine"><div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/tv/miniListForObject">https://api.eldis24.ru/api/v1/tv/miniListForObject</a>
+        Получение списка точек учёта на заданном объекте
+    </div>
+    <p>Осуществляет возможность получения списка доступных точек учёта пользователя для указанного объекта.</p>
+    <table>
+    <caption><h2>Parameters:</h2></caption>
+    <tr>
+        <th>Параметр</th>
+        <th>Передавать через</th>
+        <th>Описание</th>
+        <th>Тип данных</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>url</td>
+        <td>Идентификатор объекта</td>
+        <td>Guid</td>
+    </tr>
+    </table>
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+        {
+  "response": {
+    "tv": {
+      "fields": [ // Список доступных столбцов с их настройками отображения
+        {
+          "name": "string", // Название столбца
+          "displayName": "string", // Отображаемое название столбца
+          "ordinalPosition": "byte", // Порядковый номер столбца
+          "width": "short", // Ширина столбца
+          "visible": "bool", // Задает видимость столбца
+          "sortable": "bool", // Задает возможность сортировки данных по столбцу
+          "sorted": "string", // Задает направление сортировки (ASC, DESC)
+          "isSystem": "bool", // Указывает на то, что столбец является системным
+          "dataType": "string" // Тип данных столбца
+        }
+      ],
+      "miniListForObject": [ // Список доступных точек учёта
+        {
+          "id": "Guid", // Идентификатор точки учёта
+          "deviceID": "Guid", // Идентификатор прибора учёта
+          "modemID": "Guid/Nullable", // Идентификатор модема
+          "tvStatus": "int", // Статус точки учёта
+          "tvName": "string", // Название точки учёта
+          "deviceStatus": "int", // Статус прибора учёта
+          "deviceName": "string", // Название прибора учёта
+          "modemStatus": "int/Nullable", // Статус модема
+          "modemName": "string", // Название модема
+          "currentTask": "string", // Текущая задача
+          "tags": [ // Список доступных тегов, закрепленных за записью
+            {
+              "id": "Guid", // Идентификатор тега
+              "name": "string" // Название тега
+            }
+          ]
+        }
+      ]
+    },
+    "messages": [] // Список сообщений
+  }
+}
+    </code></pre>
+</div>
+
+<!-- Получение списка точек учёта для разработки-->
+<div class="textWindow" id="listForDevelopmentWindow">
+    <div class="getLine"><div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/tv/listForDevelopment">https://api.eldis24.ru/api/v1/tv/listForDevelopment</a>
+        Получение списка точек учёта для разработки
+    </div>
+    <p>Осуществляет возможность получения списка доступных точек учёта пользователя для разработки.</p>
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tv": {
+          "listForDevelopment": [ // Список доступных точек учёта
+            {
+              "id": "Guid", // Идентификатор точки учёта
+              "address": "string", // Адрес объекта
+              "deviceName": "string", // Название прибора учёта
+              "sn": "string", // Серийный номер прибора учёта
+              "resourceName": "string", // Название ресурса
+              "measurePointNumber": "string", // Номер точки учёта
+              "measurePointName": "string" // Название точки учёта
+            }
+          ]
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+    <table>
+        <caption><h2>Response:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Организации-->
+<div class="textWindow" id="organizationsWindow">
+    <div class="getLine"><div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/organizations/miniListForObject">https://api.eldis24.ru/api/v1/organizations/miniListForObject</a>
+        Список организаций, имеющие доступ к заданному объекту
+    </div>
+    <p>Осуществляет возможность получения списка доступных организаций пользователя, имеющие доступ к указанному объекту.</p>
+    <table>
+    <caption><h2>Parameters:</h2></caption>
+    <tr>
+        <th>Параметр</th>
+        <th>Передавать через</th>
+        <th>Описание</th>
+        <th>Тип данных</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>url</td>
+        <td>Идентификатор объекта</td>
+        <td>Guid</td>
+    </tr>
+    </table>
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "organizations": {
+          "fields": [ // Список доступных столбцов с их настройками отображения
+            {
+              "name": "string", // Название столбца
+              "displayName": "string", // Отображаемое название столбца
+              "ordinalPosition": "byte", // Порядковый номер столбца
+              "width": "short", // Ширина столбца
+              "visible": "bool", // Задает видимость столбца
+              "sortable": "bool", // Задает возможность сортировки данных по столбцу
+              "sorted": "string", // Задает направление сортировки (ASC, DESC)
+              "isSystem": "bool", // Указывает на то, что столбец является системным
+              "dataType": "string" // Тип данных столбца
+            }
+          ],
+          "miniListForObject": [ // Список доступных организаций
+            {
+              "id": "Guid", // Идентификатор организации
+              "status": "int", // Статус организации
+              "name": "string", // Название организации
+              "type": "string", // Тип организации
+              "tags": [ // Список доступных тегов, закрепленных за записью
+                {
+                  "id": "Guid", // Идентификатор тега
+                  "name": "string" // Название тега
+                }
+              ]
+            }
+          ]
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+        </code></pre>
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td >Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+
+    </table>
+</div>
+
+<!-- Данные-->
+<div class="textWindow" id="dataWindow">
+    <div class="getLine"><div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/data/normalized">https://api.eldis24.ru/api/v1/data/normalized</a>
+        Методы по работе с архивными данными приборов учёта
+    </div>
+    <p>Получение нормализованных данных для заданной точки учёта за указанный промежуток времени для заданного типа архива.</p>
+    <table>
+        <caption><h2>Parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>url</td>
+            <td>Идентификатор точки учёта</td>
+            <td>Guid</td>
+        </tr>
+        <tr>
+            <td>typeDataCode</td>
+            <td>url</td>
+            <td style="text-align: left"><pre>
+Код запрашиваемого типа архива
+Доступные коды для запроса:
+30001 – Текущий значения (Электричество);
+30003 – Часовой архив (ХВС, ГВС, Тепло, Сточные воды, Газ, Электричество);
+30004 – Суточный архив (ХВС, ГВС, Тепло, Сточные воды, Газ, Электричество);
+30005 – Месячный архив (ХВС, ГВС, Тепло, Сточные воды, Газ);
+30006 – Итоговые текущие значения (Электричество);
+30017 – Получасовой архив (Электричество);</pre></td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>startDate</td>
+            <td>url</td>
+            <td>Начало периода
+
+                Формат: dd.MM.yyyy HH:mm:ss
+            </td>
+            <td>DateTime</td>
+        </tr>
+        <tr>
+            <td>endDate</td>
+            <td>url</td>
+            <td>Конец периода
+
+                Формат: dd.MM.yyyy HH:mm:ss
+            </td>
+            <td><DateTime</td>
+        </tr>
+    </table>
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "data": {
+          "normalized": [
+            {
+              "wasteWater": [ // Структура данных сточных вод
+                {
+                  "date": "TimeStamp/DateTime", // Дата архива, приборная
+                  "dateOnEndOfArchive": "TimeStamp/DateTime", // Дата архива на конец часа
+                  "dateWithTimeBias": "TimeStamp/DateTime", // Дата архива на конец часа с учётов времени на приборе и часового пояса
+                  "V": "double/Nullable", // Объём, м3
+                  "V_Total": "double/Nullable", // Накопленное значение объёма с момента сброса, м3
+                  "M": "double/Nullable", // Масса, т
+                  "M_Total": "double/Nullable", // Накопленное значение массы с момента сброса, т
+                  "TGmax": "double/Nullable", // Время, в течение которого фактический массовый расход был выше максимального нормированного значения для средства измерения, ч
+                  "TGmin": "double/Nullable", // Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного значения для средства измерения, ч
+                  "TFault": "double/Nullable", // Время функционального отказа, ч
+                  "Toff": "double/Nullable", // Время отключения питания, ч
+                  "TOtherNS": "double/Nullable", // Суммарное время других нештатных ситуаций, ч
+                  "QntHIP": "double/Nullable", // Время нормальной работы, ч
+                  "QntHIP_Total": "double/Nullable", // Накопленное значение времени нормальной работы с момента сброса, ч
+                  "QntP": "double/Nullable", // Время отсутствия счёта, ч
+                  "QntP_Total": "double/Nullable", // Накопленное значение времени отсутствия счёта с момента сброса, ч
+                  "ns": "bool", // Наличие нештатной ситуации
+                  "empty": "bool" // Указывает на пустой архив
+                }
+              ],
+              "coldWater": [ // Структура данных ХВС
+                {
+                  "date": "TimeStamp/DateTime", // Дата архива, приборная
+                  "dateOnEndOfArchive": "TimeStamp/DateTime", // Дата архива на конец часа
+                  "dateWithTimeBias": "TimeStamp/DateTime", // Дата архива на конец часа с учётов времени на приборе и часового пояса
+                  "V": "double/Nullable", // Объём, м3
+                  "V_Total": "double/Nullable", // Накопленное значение объёма с момента сброса, м3
+                  "M": "double/Nullable", // Масса, т
+                  "M_Total": "double/Nullable", // Накопленное значение массы с момента сброса, т
+                  "P": "double/Nullable", // Давление, МПа
+                  "TGmax": "double/Nullable", // Время, в течение которого фактический массовый расход был выше максимального нормированного значения для средства измерения, ч
+                  "TGmin": "double/Nullable", // Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного значения для средства измерения, ч
+                  "TFault": "double/Nullable", // Время функционального отказа, ч
+                  "Toff": "double/Nullable", // Время отключения питания, ч
+                  "TOtherNS": "double/Nullable", // Суммарное время других нештатных ситуаций, ч
+                  "QntHIP": "double/Nullable", // Время нормальной работы, ч
+                  "QntHIP_Total": "double/Nullable", // Накопленное значение времени нормальной работы с момента сброса, ч
+                  "QntP": "double/Nullable", // Время отсутствия счёта, ч
+                  "QntP_Total": "double/Nullable", // Накопленное значение времени отсутствия счёта с момента сброса, ч
+                  "ns": "bool", // Наличие нештатной ситуации
+                  "empty": "bool" // Указывает на пустой архив
+                }
+              ],
+              "hotWater": [ // Структура данных ГВС
+                {
+                  "date": "TimeStamp/DateTime", // Дата архива, приборная
+                  "dateOnEndOfArchive": "TimeStamp/DateTime", // Дата архива на конец часа
+                  "dateWithTimeBias": "TimeStamp/DateTime", // Дата архива на конец часа с учётов времени на приборе и часового пояса
+                  "Q1": "double/Nullable", // Количество тепловой энергии на подающем трубопроводе, Гкал
+                  "Q1_Total": "double/Nullable", // Накопленное значение потребления тепловой энергии на подающем трубопроводе с момента сброса, Гкал
+                  "Q2": "double/Nullable", // Количество тепловой энергии на обратном трубопроводе, Гкал
+                  "Q2_Total": "double/Nullable", // Накопленное значение потребления тепловой энергии на обратном трубопроводе с момента сброса, Гкал
+                  "t1": "double/Nullable", // Температура на подающем трубопроводе, °C
+                  "t2": "double/Nullable", // Температура на обратном трубопроводе, °C
+                  "V1": "double/Nullable", // Объём на подающем трубопроводе, м3
+                  "V1_Total": "double/Nullable", // Накопленное значение объёма на подающем трубопроводе с момента сброса, м3
+                  "V2": "double/Nullable", // Объём на обратном трубопроводе, м3
+                  "V2_Total": "double/Nullable", // Накопленное значение объёма на обратном трубопроводе с момента сброса, м3
+                  "M1": "double/Nullable", // Масса на подающем трубопроводе, т
+                  "M1_Total": "double/Nullable", // Накопленное значение массы на подающем трубопроводе с момента сброса, т
+                  "M2": "double/Nullable", // Масса на обратном трубопроводе, т
+                  "M2_Total": "double/Nullable", // Накопленное значение массы на обратном трубопроводе с момента сброса, т
+                  "P1": "double/Nullable", // Давление на подающем трубопроводе, МПа
+                  "P2": "double/Nullable", // Давление на обратном трубопроводе, МПа
+                  "Q": "double/Nullable", // Количество тепловой энергии по всей системе, Гкал
+                  "Q_Total": "double/Nullable", // Накопленное значение потребления тепловой энергии по всей системе с момента сброса, Гкал
+                  "dt": "double/Nullable", // Разность температур, °C
+                  "dV": "double/Nullable", // Разность объёмов, м3
+                  "dM": "double/Nullable", // Разность масс, т
+                  "tcw": "double/Nullable", // Температура холодной воды, °C
+                  "Pcw": "double/Nullable", // Давление холодной воды, МПа
+                  "TGmax": "double/Nullable", // Время, в течение которого фактический массовый расход был выше максимального нормированного значения для средства измерения, ч
+                  "TGmin": "double/Nullable", // Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного значения для средства измерения, ч
+                  "Tdt": "double/Nullable", // Время, в течение которого разность температур на подающем и обратном трубопроводах была меньше допустимой нормированной разности температур для теплосчетчика, ч
+                  "TFault": "double/Nullable", // Время функционального отказа, ч
+                  "Toff": "double/Nullable", // Время отключения питания, ч
+                  "TOtherNS": "double/Nullable", // Суммарное время других нештатных ситуаций, ч
+                  "QntHIP": "double/Nullable", // Время нормальной работы, ч
+                  "QntHIP_Total": "double/Nullable", // Накопленное значение времени нормальной работы с момента сброса, ч
+                  "QntP": "double/Nullable", // Время отсутствия счёта, ч
+                  "QntP_Total": "double/Nullable", // Накопленное значение времени отсутствия счёта с момента сброса, ч
+                  "ns": "bool", // Наличие нештатной ситуации
+                  "empty": "bool" // Указывает на пустой архив
+                }
+              ],
+              "heat": [ // Структура данных тепла
+                {
+                  "date": "TimeStamp/DateTime", // Дата архива, приборная
+                  "dateOnEndOfArchive": "TimeStamp/DateTime", // Дата архива на конец часа
+                  "dateWithTimeBias": "TimeStamp/DateTime", // Дата архива на конец часа с учётов времени на приборе и часового пояса
+                  "Q1": "double/Nullable", // Количество тепловой энергии на подающем трубопроводе, Гкал
+                  "Q1_Total": "double/Nullable", // Накопленное значение потребления тепловой энергии на подающем трубопроводе с момента сброса, Гкал
+                  "Q2": "double/Nullable", // Количество тепловой энергии на обратном трубопроводе, Гкал
+                  "Q2_Total": "double/Nullable", // Накопленное значение потребления тепловой энергии на обратном трубопроводе с момента сброса, Гкал
+                  "t1": "double/Nullable", // Температура на подающем трубопроводе, °C
+                  "t2": "double/Nullable", // Температура на обратном трубопроводе, °C
+                  "t3": "double/Nullable", // Температура на подпитке, °C
+                  "V1": "double/Nullable", // Объём на подающем трубопроводе, м3
+                  "V1_Total": "double/Nullable", // Накопленное значение объёма на подающем трубопроводе с момента сброса, м3
+                  "V2": "double/Nullable", // Объём на обратном трубопроводе, м3
+                  "V2_Total": "double/Nullable", // Накопленное значение объёма на обратном трубопроводе с момента сброса, м3
+                  "V3": "double/Nullable", // Объём на подпитке, м3
+                  "V3_Total": "double/Nullable", // Накопленное значение объёма на подпитке с момента сброса, м3
+                  "M1": "double/Nullable", // Масса на подающем трубопроводе, т
+                  "M1_Total": "double/Nullable", // Накопленное значение массы на подающем трубопроводе с момента сброса, т
+                  "M2": "double/Nullable", // Масса на обратном трубопроводе, т
+                  "M2_Total": "double/Nullable", // Накопленное значение массы на обратном трубопроводе с момента сброса, т
+                  "M3": "double/Nullable", // Масса на подпитке, т
+                  "M3_Total": "double/Nullable", // Накопленное значение массы на подпитке с момента сброса, т
+                  "P1": "double/Nullable", // Давление на подающем трубопроводе, МПа
+                  "P2": "double/Nullable", // Давление на обратном трубопроводе, МПа
+                  "P3": "double/Nullable", // Давление на подпитке, МПа
+                  "Q": "double/Nullable", // Количество тепловой энергии по всей системе, Гкал
+                  "Q_Total": "double/Nullable", // Накопленное значение потребления тепловой энергии по всей системе с момента сброса, Гкал
+                  "dt": "double/Nullable", // Разность температур, °C
+                  "dV": "double/Nullable", // Разность объёмов, м3
+                  "dM": "double/Nullable", // Разность масс, т
+                  "ta": "double/Nullable", // Температура наружного воздуха, °C
+                  "tcw": "double/Nullable", // Температура холодной воды, °C
+                  "Pcw": "double/Nullable", // Давление холодной воды, МПа
+                  "TGmax": "double/Nullable", // Время, в течение которого фактический массовый расход был выше максимального нормированного значения для средства измерения, ч
+                  "TGmin": "double/Nullable", // Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного значения для средства измерения, ч
+                  "Tdt": "double/Nullable", // Время, в течение которого разность температур на подающем и обратном трубопроводах была меньше допустимой нормированной разности температур для теплосчетчика, ч
+                  "TFault": "double/Nullable", // Время функционального отказа, ч
+                  "Toff": "double/Nullable", // Время отключения питания, ч
+                  "TOtherNS": "double/Nullable", // Суммарное время других нештатных ситуаций, ч
+                  "QntHIP": "double/Nullable", // Время нормальной работы, ч
+                  "QntHIP_Total": "double/Nullable", // Накопленное значение времени нормальной работы с момента сброса, ч
+                  "QntP": "double/Nullable", // Время отсутствия счёта, ч
+                  "QntP_Total": "double/Nullable", // Накопленное значение времени отсутствия счёта с момента сброса, ч
+                  "ns": "bool", // Наличие нештатной ситуации
+                  "empty": "bool" // Указывает на пустой архив
+                }
+              ],
+              "electricity": [ // Структура данных электричества
+                {
+                  "date": "TimeStamp/DateTime", // Дата архива, приборная
+                  "dateOnEndOfArchive": "TimeStamp/DateTime", // Дата архива на конец часа
+                  "dateWithTimeBias": "TimeStamp/DateTime", // Дата архива на конец часа с учётов времени на приборе и часового пояса
+                  "Ap1": "double/Nullable", // Активная энергия прямого направления по тарифу 1, кВт*ч
+                  "Ap1_Total": "double/Nullable", // Накопленное значение активной энергии прямого направления по тарифу 1 с момента сброса, кВт*ч
+                  "Ap2": "double/Nullable", // Активная энергия прямого направления по тарифу 2, кВт*ч
+                  "Ap2_Total": "double/Nullable", // Накопленное значение активной энергии прямого направления по тарифу 2 с момента сброса, кВт*ч
+                  "Ap3": "double/Nullable", // Активная энергия прямого направления по тарифу 3, кВт*ч
+                  "Ap3_Total": "double/Nullable", // Накопленное значение активной энергии прямого направления по тарифу 3 с момента сброса, кВт*ч
+                  "Ap4": "double/Nullable", // Активная энергия прямого направления по тарифу 4, кВт*ч
+                  "Ap4_Total": "double/Nullable", // Накопленное значение активной энергии прямого направления по тарифу 4 с момента сброса, кВт*ч
+                  "Am1": "double/Nullable", // Активная энергия обратного направления по тарифу 1, кВт*ч
+                  "Am1_Total": "double/Nullable", // Накопленное значение активной энергии обратного направления по тарифу 1 с момента сброса, кВт*ч
+                  "Am2": "double/Nullable", // Активная энергия обратного направления по тарифу 2, кВт*ч
+                  "Am2_Total": "double/Nullable", // Накопленное значение активной энергии обратного направления по тарифу 2 с момента сброса, кВт*ч
+                  "Am3": "double/Nullable", // Активная энергия обратного направления по тарифу 3, кВт*ч
+                  "Am3_Total": "double/Nullable", // Накопленное значение активной энергии обратного направления по тарифу 3 с момента сброса, кВт*ч
+                  "Am4": "double/Nullable", // Активная энергия обратного направления по тарифу 4, кВт*ч
+                  "Am4_Total": "double/Nullable", // Накопленное значение активной энергии обратного направления по тарифу 4 с момента сброса, кВт*ч
+                  "Rp1": "double/Nullable", // Реактивная энергия прямого направления по тарифу 1, кВар*ч
+                  "Rp1_Total": "double/Nullable", // Накопленное значение реактивной энергии прямого направления по тарифу 1 с момента сброса, кВар*ч
+                  "Rp2": "double/Nullable", // Реактивная энергия прямого направления по тарифу 2, кВар*ч
+                  "Rp2_Total": "double/Nullable", // Накопленное значение реактивной энергии прямого направления по тарифу 2 с момента сброса, кВар*ч
+                  "Rp3": "double/Nullable", // Реактивная энергия прямого направления по тарифу 3, кВар*ч
+                  "Rp3_Total": "double/Nullable", // Накопленное значение реактивной энергии прямого направления по тарифу 3 с момента сброса, кВар*ч
+                  "Rp4": "double/Nullable", // Реактивная энергия прямого направления по тарифу 4, кВар*ч
+                  "Rp4_Total": "double/Nullable", // Накопленное значение реактивной энергии прямого направления по тарифу 4 с момента сброса, кВар*ч
+                  "Rm1": "double/Nullable", // Реактивная энергия обратного направления по тарифу 1, кВар*ч
+                  "Rm1_Total": "double/Nullable", // Накопленное значение реактивной энергии обратного направления по тарифу 1 с момента сброса, кВар*ч
+                  "Rm2": "double/Nullable", // Реактивная энергия обратного направления по тарифу 2, кВар*ч
+                  "Rm2_Total": "double/Nullable", // Накопленное значение реактивной энергии обратного направления по тарифу 2 с момента сброса, кВар*ч
+                  "Rm3": "double/Nullable", // Реактивная энергия обратного направления по тарифу 3, кВар*ч
+                  "Rm3_Total": "double/Nullable", // Накопленное значение реактивной энергии обратного направления по тарифу 3 с момента сброса, кВар*ч
+                  "Rm4": "double/Nullable", // Реактивная энергия обратного направления по тарифу 4, кВар*ч
+                  "Rm4_Total": "double/Nullable", // Накопленное значение реактивной энергии обратного направления по тарифу 4 с момента сброса, кВар*ч
+                  "Ap": "double/Nullable", // Сумма тарифов активной энергии прямого направления, кВт*ч
+                  "Ap_Total": "double/Nullable", // Сумма тарифов накопленных значений активной энергии прямого направления с момента сброса, кВт*ч
+                  "Am": "double/Nullable", // Сумма тарифов активной энергии обратного направления, кВар*ч
+                  "Am_Total": "double/Nullable", // Сумма тарифов накопленных значений активной энергии обратного направления с момента сброса, кВт*ч
+                  "Rp": "double/Nullable", // Сумма тарифов реактивной энергии прямого направления, кВар*ч
+                  "Rp_Total": "double/Nullable", // Сумма тарифов накопленных значений реактивной энергии прямого направления с момента сброса, кВар*ч
+                  "Rm": "double/Nullable", // Сумма тарифов реактивной энергии обратного направления, кВар*ч
+                  "Rm_Total": "double/Nullable", // Сумма тарифов накопленных значений реактивной энергии обратного направления с момента сброса, кВар*ч
+                  "Pp": "double/Nullable", // Активная мощность прямого направления, кВт
+                  "Pm": "double/Nullable", // Активная мощность обратного направления, кВт
+                  "Qp": "double/Nullable", // Реактивная мощность прямого направления, кВар
+                  "Qm": "double/Nullable", // Реактивная мощность обратного направления, кВар
+                  "ns": "bool" // Наличие нештатной ситуации
+                }
+              ],
+              "electricityCurrent": [ // Структура данных электричества – текущие
+                {
+                  "date": "TimeStamp/DateTime", // Дата архива, приборная
+                  "dateOnEndOfArchive": "TimeStamp/DateTime", // Дата архива на конец часа
+                  "dateWithTimeBias": "TimeStamp/DateTime", // Дата архива на конец часа с учётов времени на приборе и часового пояса
+                  "S1": "double/Nullable", // Полная мощность по фазе 1, кВА
+                  "S2": "double/Nullable", // Полная мощность по фазе 2, кВА
+                  "S3": "double/Nullable", // Полная мощность по фазе 3, кВА
+                  "P1": "double/Nullable", // Активная мощность по фазе 1, кВт
+                  "P2": "double/Nullable", // Активная мощность по фазе 2, кВт
+                  "P3": "double/Nullable", // Активная мощность по фазе 3, кВт
+                  "Q1": "double/Nullable", // Реактивная мощность по фазе 1, кВар
+                  "Q2": "double/Nullable", // Реактивная мощность по фазе 2, кВар
+                  "Q3": "double/Nullable", // Реактивная мощность по фазе 3, кВар
+                  "U1": "double/Nullable", // Напряжение по фазе 1, В
+                  "U2": "double/Nullable", // Напряжение по фазе 2, В
+                  "U3": "double/Nullable", // Напряжение по фазе 3, В
+                  "I1": "double/Nullable", // Сила тока по фазе 1, А
+                  "I2": "double/Nullable", // Сила тока по фазе 2, А
+                  "I3": "double/Nullable", // Сила тока по фазе 3, А
+                  "S": "double/Nullable", // Сумма фаз полной мощности, кВА
+                  "P": "double/Nullable", // Сумма фаз активной мощности, кВт
+                  "Q": "double/Nullable", // Сумма фаз реактивной мощности, кВар
+                  "U": "double/Nullable", // Сумма фаз напряжения, В
+                  "I": "double/Nullable", // Сумма фаз силы тока, А
+                  "F": "double/Nullable", // Частота тока, Гц
+                  "CosPhi1": "double/Nullable", // Коэффициент мощности по фазе 1
+                  "CosPhi2": "double/Nullable", // Коэффициент мощности по фазе 2
+                  "CosPhi3": "double/Nullable", // Коэффициент мощности по фазе 3
+                  "PhiU12": "double/Nullable", // Угол между фазными напряжениями фазы 1 и 2
+                  "PhiU13": "double/Nullable", // Угол между фазными напряжениями фазы 1 и 3
+                  "PhiU23": "double/Nullable" // Угол между фазными напряжениями фазы 2 и 3
+                }
+              ],
+              "gas": [ // Структура данных газа
+                {
+                  "date": "TimeStamp/DateTime", // Дата архива, приборная
+                  "dateOnEndOfArchive": "TimeStamp/DateTime", // Дата архива на конец часа
+                  "dateWithTimeBias": "TimeStamp/DateTime", // Дата архива на конец часа с учётов времени на приборе и часового пояса
+                  "t": "double/Nullable", // Температура, °C
+                  "P": "double/Nullable", // Давление, МПа
+                  "Vp": "double/Nullable", // Рабочий объём, м3
+                  "Vp_Total": "double/Nullable", // Накопленное значение рабочего объёма с момента сброса, м3
+                  "Vc": "double/Nullable", // Стандартный объём, м3
+                  "Vc_Total": "double/Nullable", // Накопленное значение стандартного объёма с момента сброса, м3
+                  "TOtherNS": "double/Nullable", // Суммарное время нештатных ситуаций, ч
+                  "QntHIP": "double/Nullable", // Время нормальной работы, ч
+                  "QntHIP_Total": "double/Nullable", // Накопленное значение времени нормальной работы с момента сброса, ч
+                  "QntP": "double/Nullable", // Время отсутствия счёта, ч
+                  "QntP_Total": "double/Nullable", // Накопленное значение времени отсутствия счёта с момента сброса, ч
+                  "ns": "bool", // Наличие нештатной ситуации
+                  "empty": "bool" // Указывает на пустой архив
+                }
+              ]
+            }
+          ]
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+</div>
+
+<!-- Подключение-->
+<div class="textWindow" id="connectWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/connect">https://api.eldis24.ru/api/v1/tasks/connect</a>
+        Постановка задачи на подключение модема к серверу
+    </div>
+    <p>Осуществляет постановку задач на подключение заданных модемов к серверам.</p>
+    <h2>Headers:</h2>
+    <pre><code class="JSON" >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "connect": [] // Список идентификаторов модема, которые необходимо подключить к серверам (Guid)
+        }
+      }
+    }
+    </code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "connect": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>15000</td>
+            <td>Модель модема не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+<!-- Отключение модема-->
+<div class="textWindow" id="disconnectWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/disconnect">https://api.eldis24.ru/api/v1/tasks/disconnect</a>
+        Постановка задачи на отключение модема от сервера
+    </div>
+    <p>Осуществляет постановку задач на отключение заданных модемов от серверов.</p>
+    <h2>Headers:</h2>
+    <pre><code class="JSON" >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "disconnect": [] // Список идентификаторов модема, которые необходимо отключить от серверов (Guid)
+        }
+      }
+    }</code></pre>
+
+    <h2>Response:</h2>
+    <pre> <code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "disconnect": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+</code></pre>
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>15000</td>
+            <td>Модель модема не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+<!-- Активация прибора учета -->
+<div class="textWindow" id="activateDeviceWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/activateDevice">https://api.eldis24.ru/api/v1/tasks/activateDevice</a>
+        Постановка задачи на активацию прибора учёта
+    </div>
+    <p>Осуществляет постановку задач на активацию заданных приборов учёта.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "activateDevice": [] // Список идентификаторов приборов учёта, которые необходимо активировать (Guid)
+        }
+      }
+    }
+</code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "activateDevice": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+    </code></pre>
+
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>200</th>
+            <th>4200005</th>
+            <th>Успешно</th>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>205</td>
+            <td>4200007</td>
+            <td>Данная запись уже активна</td>
+        </tr>
+
+        <tr>
+            <td>400</td>
+            <td>3001</td>
+            <td>Для работы необходимо указать модем, к которому подключен прибор учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3005</td>
+            <td>Для работы необходимо указать серийный номер прибора учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3003</td>
+            <td>Для работы необходимо указать сетевой адрес прибора учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3006</td>
+            <td>Для работы необходимо указать сетевой адрес адаптера, к которому подключен прибор учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3002</td>
+            <td>Для работы необходимо указать канал, к которому подключен прибор учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3004</td>
+            <td>Для работы необходимо указать скорость соединения с прибором учёта</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!--активация точки учёта -->
+<div class="textWindow" id="activateTVWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/activateTV">https://api.eldis24.ru/api/v1/tasks/activateTV</a>
+        Постановка задачи на активацию точки учёта
+    </div>
+
+    <h2>Headers:</h2>
+    <pre><code class="JSON" >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <h2>Request:</h2>
+    <pre><code>
+    {
+      "request": {
+        "tasks": {
+          "activateTV": [] // Список идентификаторов точек учёта, которые необходимо активировать (Guid)
+        }
+      }
+    }</code></pre>
+
+    <h2>Response:</h2>
+    <pre> <code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "activateTV": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }</code></pre>
+
+        <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>205</td>
+            <td>4200007</td>
+            <td>Данная запись уже активна</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3000</td>
+            <td>Модель модема не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>23001</td>
+            <td>Для работы необходимо указать номер точки учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>23002</td>
+            <td>Для работы необходимо указать ресурс точки учёта</td>
+        </tr>
+             <tr>
+            <td>400</td>
+            <td>23003</td>
+            <td>Точка учёта с таким номером уже задействована</td>
+        </tr>
+             <tr>
+            <td>400</td>
+            <td>23004</td>
+            <td>Для работы необходимо указать задействованные каналы</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+
+</div>
+
+<!--  Постановка задачи на чтение данных с точки учёта -->
+<div class="textWindow" id="readDataWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/readData">https://api.eldis24.ru/api/v1/tasks/readData</a>
+        Постановка задачи на активацию прибора учёта
+    </div>
+    <p>Осуществляет постановку задач на чтение данных с заданных точек учёта по указанному типу архива.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "readData": {
+            "typeDataCode": "int", // Код типа архива
+            "recordIDs": [] // Список идентификаторов точек учёта, с которых необходимо считать данные (Guid)
+          }
+        }
+      }
+    }
+</code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "readData": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }</code></pre>
+
+    <table>
+        <caption>Messages</caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>23005</td>
+            <td>Для работы необходимо активировать точку учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>10000</td>
+            <td>Модель прибора учёта не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>10001</td>
+            <td>Модель прибора учёта не поддерживает указанный тип архива</td>
+        </tr>
+
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!--  Постановка задачи на чтение настроечных параметров с прибора учёта -->
+<div class="textWindow" id="readDevicePropertiesWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/readDeviceProperties">https://api.eldis24.ru/api/v1/tasks/readDeviceProperties</a>
+        Постановка задачи на активацию прибора учёта
+    </div>
+    <p>Осуществляет постановку задач на чтение настроечных параметров с заданных приборов учёта.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "readDeviceProperties": [] // Список идентификаторов приборов учёта, с которых необходимо считать настроечные параметры (Guid)
+        }
+      }
+    }
+
+</code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "readDeviceProperties": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+</code></pre>
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3000</td>
+            <td>Для работы необходимо активировать прибор учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>10000</td>
+            <td>Модель прибора учёта не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Постановка задачи на чтение настроечных параметров с точки учёта -->
+<div class="textWindow" id="readTVPropertiesWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/readTVProperties">https://api.eldis24.ru/api/v1/tasks/readTVProperties</a>
+        Постановка задачи на чтение настроечных параметров с точки учёта
+    </div>
+    <p>Осуществляет постановку задач на чтение настроечных параметров с заданных точек учёта.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "readTVProperties": [] // Список идентификаторов точек учёта, с которых необходимо считать настроечные параметры (Guid)
+        }
+      }
+    }</code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "readTVProperties": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+</code></pre>
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>2305</td>
+            <td>Для работы необходимо активировать точку учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>10000</td>
+            <td>Модель прибора учёта не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+
+<!-- Постановка задачи на запись настроечных параметров прибора учёта -->
+<div class="textWindow" id="writeDevicePropertiesWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/writeDeviceProperties">https://api.eldis24.ru/api/v1/tasks/writeDeviceProperties</a>
+        Постановка задачи на активацию прибора учёта
+    </div>
+    <p>Осуществляет постановку задачи на запись настроечных параметров с заданного прибора учёта.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "writeDeviceProperties": [ // Список параметров для записи
+            {
+              "name": "string", // Название параметра
+              "value": "string" // Значение параметра, которое будет записано
+            }
+          ]
+        }
+      }
+    }
+</code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "writeDeviceProperties": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+</code></pre>
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3000</td>
+            <td>Для работы необходимо активировать прибор учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>10000</td>
+            <td>Модель прибора учёта не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>62000</td>
+            <td>Параметр не найден! Возможно он был удалён или больше не доступен</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>62001</td>
+            <td>Значение параметра лежит вне допустимого диапазона</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>62002</td>
+            <td>Значение параметра не из списка допустимых значений</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Постановка задачи на запись настроечных параметров точки учёта -->
+<div class="textWindow" id="writeTVPropertiesWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/writeTVProperties">https://api.eldis24.ru/api/v1/tasks/writeTVProperties</a>
+        Постановка задачи на запись настроечных параметров точки учёта
+    </div>
+    <p>Осуществляет постановку задачи на запись настроечных параметров с заданной точки учёта.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <table>
+    <caption><h2>Parameters:</h2></caption>
+    <tr>
+        <th>Параметр</th>
+        <th>Передавать через</th>
+        <th>Описание</th>
+        <th>Тип данных</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>url</td>
+        <td>Идентификатор объекта</td>
+        <td>Guid</td>
+    </tr>
+    </table>
+
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "writeTVProperties": [ // Список параметров для записи
+            {
+              "name": "string", // Название параметра
+              "value": "string" // Значение параметра, которое будет записано
+            }
+          ]
+        }
+      }
+    }</code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "writeTVProperties": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+</code></pre>
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>2305</td>
+            <td>Для работы необходимо активировать точку учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>10000</td>
+            <td>Модель прибора учёта не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>62000</td>
+            <td>Для работы необходимо активировать точку учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>62001</td>
+            <td>Для работы необходимо активировать точку учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>62002</td>
+            <td>Для работы необходимо активировать точку учёта</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Постановка задачи на синхронизацию времени прибора учёта-->
+<div class="textWindow" id="synchronizeTimeWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/synchronizeTime">https://api.eldis24.ru/api/v1/tasks/synchronizeTime</a>
+        Постановка задачи на синхронизацию времени прибора учёта
+    </div>
+    <p> Осуществляет постановку задач синхронизацию времени для заданных приборов учёта.</p>
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tasks": {
+          "synchronizeTime": [] // Список идентификаторов приборов учёта, для которых необходимо синхронизировать время (Guid)
+        }
+      }
+    }</code></pre>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "synchronizeTime": {}
+        },
+        "messages": [] // Список сообщений
+      }
+    }</code></pre>
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200006</td>
+            <td>Данная запись находится в архиве! Для дальнейшей работы с записью необходимо вынести ее из архива</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>3000</td>
+            <td>Для работы необходимо активировать прибор учёта</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>10000</td>
+            <td>Модель прибора учёта не поддерживает данную операцию</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Обмен-->
+<div class="textWindow" id="exchangeWindow">
+    <div class="getLine"> <div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/exchange">https://api.eldis24.ru/api/v1/tasks/exchange</a>
+        Получение обмена сообщениями модема с прибором учёта
+    </div>
+    Осуществляет возможность получения обмена сообщениями модема с прибором учёта.
+    <table>
+    <caption><h2>Parameters:</h2></caption>
+    <tr>
+        <th>Параметр</th>
+        <th>Передавать через</th>
+        <th>Описание</th>
+        <th>Тип данных</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>url</td>
+        <td>Идентификатор объекта</td>
+        <td>Guid</td>
+    </tr>
+    </table>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "tasks": {
+          "exchange": [
+            {
+              "date": "TimeStamp/DateTime", // Дата формирования сообщения
+              "direction": "int", // Тип сообщения (0 – Начало обмена; 1 – Конец обмена; 2 – Запрос; 3 – Ответ;)
+              "message": "string" // Сообщение
+            }
+          ]
+        },
+        "messages": [] // Список сообщений
+      }
+    }
+</code></pre>
+
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>4200010</td>
+            <td>Недоступно для Вашего тарифа</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+
+        <tr>
+            <td>400</td>
+            <td>3000</td>
+            <td>Для работы необходимо активировать прибор учёта</td>
+        </tr>
+
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Поиск тегов -->
+<div class="textWindow" id="tegsWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/search/tags">https://api.eldis24.ru/api/v1/search/tags</a>
+        Поиск тегов доступных пользователю
+    </div>
+    <p> Осуществляет поиск доступных пользователю тегов с указанным условием поиска для заданной сущности и поддержкой пагинации.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= application/x-www-form-urlencoded
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <table>
+        <caption><h2>URL's parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>entity</td>
+            <td>url</td>
+            <td>Название сущности/метода для которого осуществляется работа с тегами.
+                Например, для работы с тегами объектов необходимо передать: entity=objects/list
+            </td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>url</td>
+            <td>Количество записей, выводимых на одной странице.
+                Максимальное значение – 500.
+                Значение по умолчанию – 50.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>page</td>
+            <td>url</td>
+            <td>Номер отображаемой страницы.
+                Значение по умолчанию – 1.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>search</td>
+            <td>url</td>
+            <td>Осуществляет поиск данных
+            </td>
+            <td>string</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption><h2> Form's parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>notUseIDs</td>
+            <td>form</td>
+            <td>Массив ID тегов, которые стоит исключить из поиска данных.
+                ID тегов передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+        <tr>
+            <td>useIDs</td>
+            <td>form</td>
+            <td>Массив ID тегов, которые стоит найти для получения названия.
+                ID тегов передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+        <tr>
+            <td>recordIDs</td>
+            <td>form</td>
+            <td>Массив ID записей для поиска повторяющихся тегов среди переданного массива.
+                ID записей передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+    </table>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "search": {
+          "commonTags": [ // Список повторяющихся тегов при заданном параметре recordIDs
+            {
+              "id": "Guid", // Идентификатор тега
+              "name": "string" // Название тега
+            }
+          ],
+          "tags": [ // Список тегов, подходящие для переданного критерия поиска
+            {
+              "id": "Guid", // Идентификатор тега
+              "name": "string" // Название тега
+            }
+          ],
+          "pagination": { // Информация по пагинации
+            "numberOfRows": "int", // Общее количество записей
+            "numberOfPages": "int", // Общее количество страниц
+            "currentPage": "int" // Номер текущей страницы
+          }
+        },
+        "messages": [] // Список сообщений
+      }
+    }</code></pre>
+
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+
+<!-- Поиск типов объектов -->
+<div class="textWindow" id="typeObjectsWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/search/typeObjects">https://api.eldis24.ru/api/v1/search/typeObjects</a>
+        Поиск тегов доступных пользователю
+    </div>
+    <p>Осуществляет поиск типов объекта с указанным условием поиска и поддержкой пагинации.</p>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type</h4>= application/x-www-form-urlencoded
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token= "you_token_here"
+    </code></pre>
+
+    <table>
+        <caption><h2>URL's parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>url</td>
+            <td>Количество записей, выводимых на одной странице.
+                Максимальное значение – 500.
+                Значение по умолчанию – 50.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>page</td>
+            <td>url</td>
+            <td>Номер отображаемой страницы.
+                Значение по умолчанию – 1.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>search</td>
+            <td>url</td>
+            <td>Осуществляет поиск данных
+            </td>
+            <td>string</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption><h2> Form's parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>notUseIDs</td>
+            <td>form</td>
+            <td>Массив ID тегов, которые стоит исключить из поиска данных.
+                ID тегов передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+        <tr>
+            <td>useIDs</td>
+            <td>form</td>
+            <td>Массив ID тегов, которые стоит найти для получения названия.
+                ID тегов передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+        <tr>
+            <td>recordIDs</td>
+            <td>form</td>
+            <td>Массив ID записей для поиска повторяющихся тегов среди переданного массива.
+                ID записей передавать через разделитель |
+            </td>
+            <td>Guid array</td>
+        </tr>
+    </table>
+
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "search": {
+          "commonTags": [ // Список повторяющихся тегов при заданном параметре recordIDs
+            {
+              "id": "Guid", // Идентификатор тега
+              "name": "string" // Название тега
+            }
+          ],
+          "tags": [ // Список тегов, подходящие для переданного критерия поиска
+            {
+              "id": "Guid", // Идентификатор тега
+              "name": "string" // Название тега
+            }
+          ],
+          "pagination": { // Информация по пагинации
+            "numberOfRows": "int", // Общее количество записей
+            "numberOfPages": "int", // Общее количество страниц
+            "currentPage": "int" // Номер текущей страницы
+          }
+        },
+        "messages": [] // Список сообщений
+      }
+    }</code></pre>
+
+
+    <table>
+        <caption><h2>Messages </h2> </caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Status-коды сущностей-->
+<div class="textWindow"  id="statusWindow">
+    <table>
+        <caption><h2>Модемы:</h2></caption>
+        <tr>
+            <th style="width: 10%">Статус</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Отключен</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Подключен</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Неактивирован</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Вышел из строя</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Вне зоны действия сети</td>
+        </tr>
+    </table>
+    <table>
+        <caption><h2>Приборы учета:</h2></caption>
+        <tr>
+            <th style="width: 10%">Статус</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Активирован</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Неактивирован</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Должник</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Вышел из стро</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>На поверке</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Утилизирован</td>
+        </tr>
+    </table>
+    <table>
+        <caption><h2>Точки учета:</h2></caption>
+        <tr>
+            <th width="10%" >Статус</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Активирован</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Неактивирован</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Изменена схема измерения</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Без автоопроса</td>
+        </tr>
+    </table>
+    <table>
+        <caption><h2>Точки учета:</h2></caption>
+        <tr>
+            <th>Статус</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Активна</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Неактивна</td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="textWindow" id="columnsList"></div>
+<div class="textWindow" id="filtersList"></div>
+
+</body>
+
+</html>
