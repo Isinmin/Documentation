@@ -12,63 +12,66 @@
     <script src="highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
-<body onresize="windowSize()" onload="windowSize();autoClickMenu()">
-<!-- Блока Аккордеон -->
+<body onresize="windowSize()" onload="windowSize();autoClickMenu();get_url_var();">
+<!-- Меню -->
 <ul id="menu">
-    <li id="information" onclick="checkMenuButton(this);"><a>  Общая информация по API</a></li>
+    <li id="changeLog" class="unSub" onclick="checkMenuButton(this);createUrl(this)"><a>Лог изменений</a></li>
+    <li  class="unSub" style="border:none;" id="information" onclick="checkMenuButton(this);createUrl(this)"><a>  Общая информация по API</a>
+    </li>
     <li class="sub"><a> Пользователи системы</a>
         <ul>
-            <li id="login" onclick="checkMenuButton(this); "><a>Авторизация</a></li>
-            <li id="logout" onclick="checkMenuButton(this);"><a>Выход</a></li>
-            <li id="logoutGlobal" onclick="checkMenuButton(this);"><a>Глобальный выход</a></li>
+            <li id="login" onclick="checkMenuButton(this);createUrl(this)"><a>Авторизация</a></li>
+            <li id="logout" onclick="checkMenuButton(this);createUrl(this)"><a>Выход</a></li>
+            <li id="logoutGlobal" onclick="checkMenuButton(this);createUrl(this)"><a>Глобальный выход</a></li>
         </ul>
     </li>
     <li class="sub"><a > Объекты систем</a>
         <ul>
-            <li id="objects" onclick="checkMenuButton(this);"><a>Доступные объекты</a></li>
-            <li id="get" onclick="checkMenuButton(this);"><a>Получение информации</a></li>
+            <li id="objects" onclick="checkMenuButton(this);createUrl(this)"><a>Доступные объекты</a></li>
+            <li id="get" onclick="checkMenuButton(this);createUrl(this)"><a>Получение информации</a></li>
+            <li id="deleteObj" onclick="checkMenuButton(this);createUrl(this)"><a>Удаление объекта</a></li>
         </ul>
     </li>
     <li class=" sub "><a > Модемы системы</a>
         <ul>
-            <li id="modems" onclick="checkMenuButton(this);"><a>Список модемов</a></li>
+            <li id="modems" onclick="checkMenuButton(this);createUrl(this)"><a>Список модемов</a></li>
         </ul>
     </li>
     <li class=" sub" ><a >Приборы учета</a>
         <ul>
-            <li id="devices" onclick="checkMenuButton(this);"><a>Список приборов</a></li>
+            <li id="devices" onclick="checkMenuButton(this);createUrl(this)"><a>Список приборов</a></li>
         </ul>
     </li>
     <li class=" sub"><a> Точки учета</a>
         <ul>
-            <li id="miniListForObject" onclick="checkMenuButton(this);"><a>Список точек для объекта</a></li>
+            <li id="miniListForObject" onclick="checkMenuButton(this);createUrl(this)"><a>Список точек для объекта</a></li>
             <li id="listForDevelopment" onclick="checkMenuButton(this); "><a>Список точек для разработки</a></li>
         </ul>
     </li>
 
     <li  class=" sub"><a> Организации</a>
         <ul>
-            <li id="organizations" onclick="checkMenuButton(this);"><a>Список организаций</a></li>
+            <li id="organizations" onclick="checkMenuButton(this);createUrl(this)"><a>Список организаций</a></li>
         </ul>
     </li>
     <li  class=" sub" ><a>Данные</a>
         <ul>
-            <li id="data" onclick="checkMenuButton(this);"><a>Нормализованные данные</a></li>
+            <li id="data" onclick="checkMenuButton(this);createUrl(this)"><a>Нормализованные данные</a></li>
         </ul>
     </li>
     <li class=" sub"><a> Задачи</a>
         <ul>
-            <li id="connect" onclick="checkMenuButton(this)"><a>Подключение модема к серверу</a></li>
-            <li id="disconnect" onclick="checkMenuButton(this)"><a>Отключение модема от сервера</a></li>
-            <li id="activateDevice" onclick="checkMenuButton(this)"><a>Активация прибора учета</a></li>
-            <li id="activateTV" onclick="checkMenuButton(this)"><a>Активация точки учета</a></li>
-            <li id="readData" onclick="checkMenuButton(this)"><a>Чтение данных с точки</a></li>
-            <li id="readDeviceProperties" onclick="checkMenuButton(this)"><a>Чтение параметров прибора</a></li>
-            <li id="readTVProperties" onclick="checkMenuButton(this)"><a>Чтение параметров точки</a></li>
-            <li id="writeDeviceProperties" onclick="checkMenuButton(this)"><a>Запись параметров прибора</a></li>
-            <li id="writeTVProperties" onclick="checkMenuButton(this)"><a>Запись параметров точки</a></li>
-            <li id="synchronizeTime" onclick="checkMenuButton(this)"><a>Синхронизация времени</a></li>
-            <li id="exchange" onclick="checkMenuButton(this)"><a>Обмен сообщениями</a></li>
+            <li id="connect" onclick="checkMenuButton(this);createUrl(this)"><a>Подключение модема к серверу</a></li>
+            <li id="disconnect" onclick="checkMenuButton(this);createUrl(this)"><a>Отключение модема от сервера</a></li>
+            <li id="activateDevice" onclick="checkMenuButton(this);createUrl(this)"><a>Активация прибора учета</a></li>
+            <li id="activateTV" onclick="checkMenuButton(this);createUrl(this)"><a>Активация точки учета</a></li>
+            <li id="readData" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение данных с точки</a></li>
+            <li id="readDeviceProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение параметров прибора</a></li>
+            <li id="readTVProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение параметров точки</a></li>
+            <li id="writeDeviceProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Запись параметров прибора</a></li>
+            <li id="writeTVProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Запись параметров точки</a></li>
+            <li id="synchronizeTime" onclick="checkMenuButton(this);createUrl(this)"><a>Синхронизация времени</a></li>
+            <li id="exchange" onclick="checkMenuButton(this);createUrl(this)"><a>Обмен сообщениями</a></li>
         </ul>
     </li>
 
@@ -79,58 +82,108 @@
     </li>
     <li class=" sub"><a>  Поиск записей</a>
         <ul>
-            <li id="tags" onclick="checkMenuButton(this)"><a>Доступные теги</a></li>
-            <li id="organizationsSearch" onclick="checkMenuButton(this)"><a>Поиск организаций</a></li>
-            <li id="typeObjects" onclick="checkMenuButton(this)"><a>Поиск типов объектов</a></li>
-            <li id="modeObjects" onclick="checkMenuButton(this)"><a>Поиск режимов работы объекта</a></li>
+            <li id="tags" onclick="checkMenuButton(this);createUrl(this)"><a>Доступные теги</a></li>
+            <li id="organizationsSearch" onclick="checkMenuButton(this);createUrl(this)"><a>Поиск организаций</a></li>
+            <li id="typeObjects" onclick="checkMenuButton(this);createUrl(this)"><a>Поиск типов объектов</a></li>
+            <li id="modeObjects" onclick="checkMenuButton(this);createUrl(this)"><a>Поиск режимов работы объекта</a></li>
         </ul>
     </li>
     <li class=" sub" ><a > Настройка столбцов</a>
         <ul>
-            <li id="edit" onclick="checkMenuButton(this)"><a>Редактирование</a></li>
-            <li id="reset" onclick="checkMenuButton(this)"><a>Сброс</a></li>
+            <li id="edit" onclick="checkMenuButton(this);createUrl(this)"><a>Редактирование</a></li>
+            <li id="reset" onclick="checkMenuButton(this);createUrl(this)"><a>Сброс</a></li>
         </ul>
     </li>
     <li class="sub "><a > Настройка фильтров</a>
         <ul>
-            <li id="filters" onclick="checkMenuButton(this)"><a>Доступные фильтры</a></li>
-            <li id="add" onclick="checkMenuButton(this)"><a>Создание фильтра</a></li>
-            <li id="filtersEdit" onclick="checkMenuButton(this)"><a>Редактирование  фильтра</a></li>
-            <li id="delete" onclick="checkMenuButton(this)"><a>Удаление фильтра</a></li>
+            <li id="filters" onclick="checkMenuButton(this);createUrl(this)"><a>Доступные фильтры</a></li>
+            <li id="add" onclick="checkMenuButton(this);createUrl(this)"><a>Создание фильтра</a></li>
+            <li id="filtersEdit" onclick="checkMenuButton(this);createUrl(this)"><a>Редактирование  фильтра</a></li>
+            <li id="deleteFilter" onclick="checkMenuButton(this);createUrl(this)"><a>Удаление фильтра</a></li>
         </ul>
     </li>
 
     <li class="sub"><a> Настройки системы</a>
         <ul>
-            <li id="settings" onclick="checkMenuButton(this)"><a>Отображение элементов</a></li>
+            <li id="settings" onclick="checkMenuButton(this);createUrl(this)"><a>Отображение элементов</a></li>
         </ul>
     </li>
     <li class="sub"><a> Главные страницы</a>
         <ul>
-            <li id="dashboards" onclick="checkMenuButton(this)"><a>Список страниц</a></li>
+            <li id="dashboards" onclick="checkMenuButton(this);createUrl(this)"><a>Список страниц</a></li>
         </ul>
     </li>
     <li class="sub"><a>  Виджеты </a>
         <ul>
-            <li id="widgets" onclick="checkMenuButton(this)"><a>Список виджетов</a></li>
-            <li id="usersWidgets" onclick="checkMenuButton(this)"><a>Виджеты пользователя</a></li>
-            <li id="changeWidgets" onclick="checkMenuButton(this)"><a>Добавление и удаление</a></li>
-            <li id="resetWidgets" onclick="checkMenuButton(this)"><a>Сброс настроек</a></li>
-            <li id="copyToDashboard" onclick="checkMenuButton(this)"><a>Копирование виджетов</a></li>
+            <li id="widgets" onclick="checkMenuButton(this);createUrl(this)"><a>Список виджетов</a></li>
+            <li id="usersWidgets" onclick="checkMenuButton(this);createUrl(this)"><a>Виджеты пользователя</a></li>
+            <li id="changeWidgets" onclick="checkMenuButton(this);createUrl(this)"><a>Добавление и удаление</a></li>
+            <li id="resetWidgets" onclick="checkMenuButton(this);createUrl(this)"><a>Сброс настроек</a></li>
+            <li id="copyToDashboard" onclick="checkMenuButton(this);createUrl(this)"><a>Копирование виджетов</a></li>
         </ul>
     </li>
     <li class="sub"><a> SIM карты </a>
         <ul>
-            <li id="number" onclick="checkMenuButton(this)"><a>Получение номера телефона</a></li>
-            <li id="iccid" onclick="checkMenuButton(this)"><a>Получение номера ICCID </a></li>
+            <li id="number" onclick="checkMenuButton(this);createUrl(this)"><a>Получение номера телефона</a></li>
+            <li id="iccid" onclick="checkMenuButton(this);createUrl(this)"><a>Получение номера ICCID </a></li>
         </ul>
     </li>
-    <li  class="notSelected" id="messages" onclick="checkMenuButton(this);"><a>Структура сообщений</a></li>
-    <li class="notSelected " id="status" onclick="checkMenuButton(this);"><a>  Status-коды сущностей</a>
+    <li  class="unSub" id="messages" onclick="checkMenuButton(this);createUrl(this)"><a>Структура сообщений</a></li>
+    <li class="unSub"  id="status" onclick="checkMenuButton(this);createUrl(this)"><a>  Status-коды сущностей</a>
     </li>
 </ul>
 
+
+<div id="changeLogWindow" class="textWindow">
+    <div class="headLine" style="padding-left: 30px"> Changelog</div>
+  <p>
+    All notable changes to this project will be documented in this file.<br>
+
+    The format is based on [Keep a Changelog](<a href="http://keepachangelog.com/en/1.0.0/">http://keepachangelog.com/en/1.0.0/</a>)
+    and this project adheres to [Semantic Versioning](<a href="http://semver.org/spec/v2.0.0.html">http://semver.org/spec/v2.0.0.html</a>).
+  </p>
+
+    <div class="headLine"> <div style="margin-left: 30px">[1.0.0] - 2017-06-20 </div></div>
+    <h2>Added:</h2>
+   <ul  class="added">
+
+       <li>  New visual identity by @tylerfortune8.</li>
+       <li> Version navigation.</li>
+       <li>Links to latest released version in previous versions.</li>
+       <li>"Why keep a changelog?" section.</li>
+       <li>  New visual identity by @tylerfortune8.</li>
+       <li> Version navigation.</li>
+       <li>Links to latest released version in previous versions.</li>
+       <li>"Why keep a changelog?" section.</li>
+   </ul>
+
+
+    <h2>Changed:</h2>s
+    <ul  class="changed">
+
+        <li>  New visual identity by @tylerfortune8.</li>
+        <li> Version navigation.</li>
+        <li>Links to latest released version in previous versions.</li>
+        <li>"Why keep a changelog?" section.</li>
+    </ul>
+
+   <h2> Removed:</h2>
+    <ul class="removed">
+       <li> Section about "changelog" vs "CHANGELOG".</li>
+    </ul>
+   <div class="headLine"> <div style="margin-left: 30px"> [0.3.0] - 2015-12-03</div></div>
+     <div class="added">Added</div>
+    <ul class="added">
+        <li> RU translation from @aishek.</li>
+        <li> pt-BR translation from @tallesl.</li>
+        <li>es-ES translation from @ZeliosAriex.</li>
+    </ul>
+
+
+
 </div>
+
+
 <!-- Общее -->
 <div class="textWindow" onload="windowSize();" id="informationWindow">
     <div class="headLine">  <a href="https://api.eldis24.ru/">https://api.eldis24.ru/</a> Общая информация по API</div>
@@ -267,7 +320,7 @@
             "result": "bool" // Результат авторизации
           }
         },
-        "messages":  []  // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -324,7 +377,7 @@
             "result": "bool" // Результат выхода
           }
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -369,7 +422,7 @@
             "result": "bool" // Результат выхода
           }
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -522,7 +575,7 @@
           "list": [ // Список доступных объектов
             {
               "id": "Guid", // Идентификатор объекта
-              "isWinterMode": "bool", // Режим работы объекта (true – Зима; false – Лето;)
+              "isWinterMode": "bool", // <a onclick="modeObj()">  Режим работы объекта (true – Зима; false – Лето;)</a>
               "address": "string", // Адрес объекта
               "name": "string", // Название объекта
               "consumer": "string", // Потребители
@@ -541,7 +594,7 @@
             "currentPage": "int" // Номер текущей страницы
           }
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -614,12 +667,12 @@
             "title": "string", // Заголовок страницы объекта
             "address": "string", // Адрес объекта
             "name": "string", // Название объекта
-            "typeObject": { // Тип объекта
+            "typeObject": { // <a onclick="searchTypeObj">  Тип объекта </a>
               "id": "Guid", // Идентификатор типа
               "name": "string" // Название типа
             },
             "timeZoneName": "string", // Часовой пояс
-            "isWinterMode": "bool", // Режим работы (true – Зима; false – Лето;)
+            "isWinterMode": "bool", // <a onclick="modeObj()">  Режим работы (true – Зима; false – Лето;)</a>
             "modeChangeDate": "TimeStamp/DateTime/Nullable", // Дата переключения режима
             "meteoStationName": "string", // Название метеостанции
             "distanceToMeteoStation": "string", // Расстояние до метеостанции
@@ -634,7 +687,7 @@
               ]
           }
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -660,6 +713,83 @@
             <td>4200001</td>
             <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
         </tr>
+    </table>
+</div>
+
+<!-- Удаление объекта -->
+<div class="textWindow" id="deleteObjWindow">
+    <div class="postLine"> <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/objects/delete">https://api.eldis24.ru/api/v1/objects/delete</a>
+        Удаление объекта
+    </div>
+    <div style="margin-bottom: 40px"> <p>
+        Удаляет указанные объекты и все связанные записи с этими объектами.</p>
+    </div>
+    <h2>Headers:</h2>
+    <pre><code >
+    <h4>Content-Type:</h4> text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie:</h4> access_token = "you_token_here"
+    </code></pre>
+
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "objects": {
+          "delete": [] // Список идентификаторов объекта, которые необходимо удалить (Guid)
+        }
+      }
+    }</code></pre>
+    <h2>Response:</h2>
+    <pre><code class="JSON">
+    {
+      "response": {
+        "objects": {
+          "delete": {}
+        },
+        "messages": [] // <a onclick="messageLink()"> Список сообщений </a>
+    }
+    </code></pre>
+
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td >Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+          <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+          <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+
     </table>
 </div>
 
@@ -709,7 +839,7 @@
           "miniListForObject": [ // Список доступных модемов
             {
               "id": "Guid", // Идентификатор модема
-              "status": "int",  // Статус модема
+              "status": "int",  // <a onclick="statusLink()"> Статус модема </a>
               "name": "string",  // Название
               "phone": "string", // Телефон
               "lastConnection": "TimeStamp/DateTime/Nullable", // Дата последнего подключения
@@ -722,7 +852,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -806,9 +936,9 @@
             {
               "id": "Guid", // Идентификатор прибора учёта
               "modemID": "Guid/Nullable", // Идентификатор модема
-              "deviceStatus": "int", // Статус прибора учёта
+              "deviceStatus": "int", // <a onclick="statusLink()"> Статус прибора учёта </a>
               "deviceName": "string", // Название прибора учёта
-              "modemStatus": "int/Nullable", // Статус модема
+              "modemStatus": "int/Nullable", // <a onclick="statusLink()"> Статус модема </a>
               "modemName": "string", // Название модема
               "nextCalibrationName": "TimeStamp/DateTime/Nullable",  // Дата следующей поверки
               "timeOnDevice": "string",  // Время на приборе учёта
@@ -822,7 +952,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
     <table>
@@ -907,11 +1037,11 @@
               "id": "Guid", // Идентификатор точки учёта
               "deviceID": "Guid", // Идентификатор прибора учёта
               "modemID": "Guid/Nullable", // Идентификатор модема
-              "tvStatus": "int", // Статус точки учёта
+              "tvStatus": "int", // <a onclick="statusLink()">Статус точки учёта </a>
               "tvName": "string", // Название точки учёта
-              "deviceStatus": "int", // Статус прибора учёта
+              "deviceStatus": "int", // <a onclick="statusLink()"> Статус прибора учёта </a>
               "deviceName": "string", // Название прибора учёта
-              "modemStatus": "int/Nullable", // Статус модема
+              "modemStatus": "int/Nullable", // <a onclick="statusLink()"> Статус модема </a>
               "modemName": "string", // Название модема
               "currentTask": "string", // Текущая задача
               "tags": [ // Список доступных тегов, закрепленных за записью
@@ -923,7 +1053,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -986,7 +1116,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -1058,7 +1188,7 @@
           "miniListForObject": [ // Список доступных организаций
             {
               "id": "Guid", // Идентификатор организации
-              "status": "int", // Статус организации
+              "status": "int", // <a onclick="statusLink()"> Статус организации </a>
               "name": "string", // Название организации
               "type": "string", // Тип организации
               "tags": [ // Список доступных тегов, закрепленных за записью
@@ -1070,7 +1200,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
         </code></pre>
@@ -1441,7 +1571,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -1511,7 +1641,7 @@
         "tasks": {
           "connect": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -1600,7 +1730,7 @@
         "tasks": {
           "disconnect": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -1691,7 +1821,7 @@
         "tasks": {
           "activateDevice": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
     </code></pre>
@@ -1813,7 +1943,7 @@
         "tasks": {
           "activateTV": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -1933,7 +2063,7 @@
         "tasks": {
           "readData": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -2036,7 +2166,7 @@
         "tasks": {
           "readDeviceProperties": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -2132,7 +2262,7 @@
         "tasks": {
           "readTVProperties": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -2197,7 +2327,6 @@
     </table>
 </div>
 
-
 <!-- Постановка задачи на запись настроечных параметров прибора учёта -->
 <div class="textWindow" id="writeDevicePropertiesWindow">
     <div class="postLine"> <div class="post">POST</div>
@@ -2235,7 +2364,7 @@
         "tasks": {
           "writeDeviceProperties": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -2367,7 +2496,7 @@
         "tasks": {
           "writeTVProperties": {}
         },
-        "messages": [] // Список сообщений
+         "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -2479,7 +2608,7 @@
         "tasks": {
           "synchronizeTime": {}
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -2584,7 +2713,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -2722,7 +2851,7 @@
             ]
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -2869,7 +2998,7 @@
             "currentPage": "int" // Номер текущей страницы
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -2996,7 +3125,7 @@
             "currentPage": "int" // Номер текущей страницы
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -3119,7 +3248,7 @@
             "currentPage": "int" // Номер текущей страницы
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -3242,7 +3371,7 @@
             "currentPage": "int" // Номер текущей страницы
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -3333,7 +3462,7 @@
             "result": "bool" // Результат выполнения
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -3407,7 +3536,7 @@
             "result": "bool" // Результат выполнения
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -3503,7 +3632,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -3597,7 +3726,7 @@
             "isSystem": "bool" // Указывает на то, что фильтр является системным
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -3692,7 +3821,7 @@
             "result": "bool" // Результат выполнения
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -3730,7 +3859,7 @@
 
 
 <!-- Удаление фильтра -->
-<div class="textWindow" id="deleteWindow">
+<div class="textWindow" id="deleteFilterWindow">
     <div class="getLine"> <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/customFilters/delete">https://api.eldis24.ru/api/v1/customFilters/delete</a>
         Удаление пользовательского фильтра
@@ -3776,7 +3905,7 @@
             "result": "bool" // Результат выполнения
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -3857,7 +3986,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -3917,7 +4046,7 @@
             "isSystem": "bool" // Указывает на то, что страница является системной
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -3988,7 +4117,7 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (тип объекта);
+                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
@@ -4013,7 +4142,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -4096,7 +4225,7 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (тип объекта);
+                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
@@ -4216,7 +4345,7 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (тип объекта);
+                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
@@ -4256,7 +4385,7 @@
             "result": "bool" // Результат выполнения
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -4343,7 +4472,7 @@
             "result": "bool" // Результат выполнения
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -4429,7 +4558,7 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (тип объекта);
+                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
@@ -4469,7 +4598,7 @@
             "result": "bool" // Результат выполнения
           }
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -4572,7 +4701,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }</code></pre>
 
@@ -4651,7 +4780,7 @@
             }
           ]
         },
-        "messages": [] // Список сообщений
+        "messages":  []//<a onclick="statusLink()"> Список сообщений </a>
       }
     }
 </code></pre>
@@ -4833,6 +4962,29 @@
         });
         $('#menu> li').click(function(){
          //   $('.sub ul li a').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
+<script type="text/javascript" ></script><script type="text/javascript">
+    $(document).ready(function () {
+        $('#menu> li.unSub> a').click(function(){
+            $('#menu li ul').slideUp();
+            if ($(this).next().is(":visible")){
+                $(this).next().slideUp();
+            } else {
+                $(this).next().slideToggle();
+            }
+            $('#menu li a').removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.sub ul li a').click(function(){
+            var subIndex = $('.unSub ul li a').index(this);
+            $('.unSub ul li a').removeClass('active');
+            $(this).addClass('active');
+        });
+        $('#menu> li').click(function(){
+            //   $('.sub ul li a').removeClass('active');
             $(this).addClass('active');
         });
     });
