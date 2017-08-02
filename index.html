@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Меню Аккордеон на jQuery - с обработкой cookie</title>
     <script src="functions.js"></script>
-   <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="tomorrow-night-eighties.css">
@@ -16,7 +16,8 @@
 <!-- Меню -->
 <ul id="menu">
     <li id="changeLog" class="unSub" onclick="checkMenuButton(this);createUrl(this)"><a>Лог изменений</a></li>
-    <li  class="unSub" style="border:none;" id="information" onclick="checkMenuButton(this);createUrl(this)"><a>  Общая информация по API</a>
+    <li class="unSub" style="border:none;" id="information" onclick="checkMenuButton(this);createUrl(this)"><a> Общая
+        информация по API</a>
     </li>
     <li class="sub"><a> Пользователи системы</a>
         <ul>
@@ -25,36 +26,40 @@
             <li id="logoutGlobal" onclick="checkMenuButton(this);createUrl(this)"><a>Глобальный выход</a></li>
         </ul>
     </li>
-    <li class="sub"><a > Объекты систем</a>
+    <li class="sub"><a> Объекты систем</a>
         <ul>
             <li id="objects" onclick="checkMenuButton(this);createUrl(this)"><a>Доступные объекты</a></li>
             <li id="get" onclick="checkMenuButton(this);createUrl(this)"><a>Получение информации</a></li>
             <li id="deleteObj" onclick="checkMenuButton(this);createUrl(this)"><a>Удаление объекта</a></li>
         </ul>
     </li>
-    <li class=" sub "><a > Модемы системы</a>
+    <li class=" sub "><a> Модемы системы</a>
         <ul>
             <li id="modems" onclick="checkMenuButton(this);createUrl(this)"><a>Список модемов</a></li>
+            <li id="modemsDelete" onclick="checkMenuButton(this);createUrl(this)"><a>Удаление модемов</a></li>
         </ul>
     </li>
-    <li class=" sub" ><a >Приборы учета</a>
+    <li class=" sub"><a>Приборы учета</a>
         <ul>
             <li id="devices" onclick="checkMenuButton(this);createUrl(this)"><a>Список приборов</a></li>
+            <li id="devicesDelete" onclick="checkMenuButton(this);createUrl(this)"><a>Удаление приборов</a></li>
         </ul>
     </li>
     <li class=" sub"><a> Точки учета</a>
         <ul>
-            <li id="miniListForObject" onclick="checkMenuButton(this);createUrl(this)"><a>Список точек для объекта</a></li>
+            <li id="miniListForObject" onclick="checkMenuButton(this);createUrl(this)"><a>Список точек для объекта</a>
+            </li>
             <li id="listForDevelopment" onclick="checkMenuButton(this); "><a>Список точек для разработки</a></li>
+            <li id="tvDelete" onclick="checkMenuButton(this); "><a>Удаление точек учёта</a></li>
         </ul>
     </li>
 
-    <li  class=" sub"><a> Организации</a>
+    <li class=" sub"><a> Организации</a>
         <ul>
             <li id="organizations" onclick="checkMenuButton(this);createUrl(this)"><a>Список организаций</a></li>
         </ul>
     </li>
-    <li  class=" sub" ><a>Данные</a>
+    <li class=" sub"><a>Данные</a>
         <ul>
             <li id="data" onclick="checkMenuButton(this);createUrl(this)"><a>Нормализованные данные</a></li>
         </ul>
@@ -66,39 +71,45 @@
             <li id="activateDevice" onclick="checkMenuButton(this);createUrl(this)"><a>Активация прибора учета</a></li>
             <li id="activateTV" onclick="checkMenuButton(this);createUrl(this)"><a>Активация точки учета</a></li>
             <li id="readData" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение данных с точки</a></li>
-            <li id="readDeviceProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение параметров прибора</a></li>
-            <li id="readTVProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение параметров точки</a></li>
-            <li id="writeDeviceProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Запись параметров прибора</a></li>
-            <li id="writeTVProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Запись параметров точки</a></li>
+            <li id="readDeviceProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение параметров
+                прибора</a></li>
+            <li id="readTVProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Чтение параметров точки</a>
+            </li>
+            <li id="writeDeviceProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Запись параметров
+                прибора</a></li>
+            <li id="writeTVProperties" onclick="checkMenuButton(this);createUrl(this)"><a>Запись параметров точки</a>
+            </li>
             <li id="synchronizeTime" onclick="checkMenuButton(this);createUrl(this)"><a>Синхронизация времени</a></li>
             <li id="exchange" onclick="checkMenuButton(this);createUrl(this)"><a>Обмен сообщениями</a></li>
+            <li id="tasksMiniList" onclick="checkMenuButton(this);createUrl(this)"><a>Список задач для объекта</a></li>
         </ul>
     </li>
 
-    <li class=" sub"><a > Пользовательские теги</a>
+    <li class=" sub"><a> Пользовательские теги</a>
         <ul>
             <li id="change" onclick="checkMenuButton(this); "><a>Создание и удаление тегов</a></li>
         </ul>
     </li>
-    <li class=" sub"><a>  Поиск записей</a>
+    <li class=" sub"><a> Поиск записей</a>
         <ul>
             <li id="tags" onclick="checkMenuButton(this);createUrl(this)"><a>Доступные теги</a></li>
             <li id="organizationsSearch" onclick="checkMenuButton(this);createUrl(this)"><a>Поиск организаций</a></li>
             <li id="typeObjects" onclick="checkMenuButton(this);createUrl(this)"><a>Поиск типов объектов</a></li>
-            <li id="modeObjects" onclick="checkMenuButton(this);createUrl(this)"><a>Поиск режимов работы объекта</a></li>
+            <li id="modeObjects" onclick="checkMenuButton(this);createUrl(this)"><a>Поиск режимов работы объекта</a>
+            </li>
         </ul>
     </li>
-    <li class=" sub" ><a > Настройка столбцов</a>
+    <li class=" sub"><a> Настройка столбцов</a>
         <ul>
             <li id="edit" onclick="checkMenuButton(this);createUrl(this)"><a>Редактирование</a></li>
             <li id="reset" onclick="checkMenuButton(this);createUrl(this)"><a>Сброс</a></li>
         </ul>
     </li>
-    <li class="sub "><a > Настройка фильтров</a>
+    <li class="sub "><a> Настройка фильтров</a>
         <ul>
             <li id="filters" onclick="checkMenuButton(this);createUrl(this)"><a>Доступные фильтры</a></li>
             <li id="add" onclick="checkMenuButton(this);createUrl(this)"><a>Создание фильтра</a></li>
-            <li id="filtersEdit" onclick="checkMenuButton(this);createUrl(this)"><a>Редактирование  фильтра</a></li>
+            <li id="filtersEdit" onclick="checkMenuButton(this);createUrl(this)"><a>Редактирование фильтра</a></li>
             <li id="deleteFilter" onclick="checkMenuButton(this);createUrl(this)"><a>Удаление фильтра</a></li>
         </ul>
     </li>
@@ -113,7 +124,7 @@
             <li id="dashboards" onclick="checkMenuButton(this);createUrl(this)"><a>Список страниц</a></li>
         </ul>
     </li>
-    <li class="sub"><a>  Виджеты </a>
+    <li class="sub"><a> Виджеты </a>
         <ul>
             <li id="widgets" onclick="checkMenuButton(this);createUrl(this)"><a>Список виджетов</a></li>
             <li id="usersWidgets" onclick="checkMenuButton(this);createUrl(this)"><a>Виджеты пользователя</a></li>
@@ -128,51 +139,55 @@
             <li id="iccid" onclick="checkMenuButton(this);createUrl(this)"><a>Получение номера ICCID </a></li>
         </ul>
     </li>
-    <li  class="unSub" id="messages" onclick="checkMenuButton(this);createUrl(this)"><a>Структура сообщений</a></li>
-    <li class="unSub"  id="status" onclick="checkMenuButton(this);createUrl(this)"><a>  Status-коды сущностей</a>
+    <li class="unSub" id="messages" onclick="checkMenuButton(this);createUrl(this)"><a>Структура сообщений</a></li>
+    <li class="unSub" id="status" onclick="checkMenuButton(this);createUrl(this)"><a> Status-коды сущностей</a>
     </li>
 </ul>
 
 
 <div id="changeLogWindow" class="textWindow">
     <div class="headLine" style="padding-left: 30px"> Changelog</div>
-  <p>
-    All notable changes to this project will be documented in this file.<br>
+    <p>
+        All notable changes to this project will be documented in this file.<br>
 
-    The format is based on [Keep a Changelog](<a href="http://keepachangelog.com/en/1.0.0/">http://keepachangelog.com/en/1.0.0/</a>)
-    and this project adheres to [Semantic Versioning](<a href="http://semver.org/spec/v2.0.0.html">http://semver.org/spec/v2.0.0.html</a>).
-  </p>
+        The format is based on [Keep a Changelog](<a href="http://keepachangelog.com/en/1.0.0/">http://keepachangelog.com/en/1.0.0/</a>)
+        and this project adheres to [Semantic Versioning](<a href="http://semver.org/spec/v2.0.0.html">http://semver.org/spec/v2.0.0.html</a>).
+    </p>
 
-    <div class="headLine"> <div style="margin-left: 30px">[1.0.0] - 2017-06-20 </div></div>
+    <div class="headLine">
+        <div style="margin-left: 30px">[1.0.0] - 2017-06-20</div>
+    </div>
     <h2>Added:</h2>
-   <ul  class="added">
+    <ul class="added">
 
-       <li>  New visual identity by @tylerfortune8.</li>
-       <li> Version navigation.</li>
-       <li>Links to latest released version in previous versions.</li>
-       <li>"Why keep a changelog?" section.</li>
-       <li>  New visual identity by @tylerfortune8.</li>
-       <li> Version navigation.</li>
-       <li>Links to latest released version in previous versions.</li>
-       <li>"Why keep a changelog?" section.</li>
-   </ul>
-
-
-    <h2>Changed:</h2>s
-    <ul  class="changed">
-
-        <li>  New visual identity by @tylerfortune8.</li>
+        <li> New visual identity by @tylerfortune8.</li>
+        <li> Version navigation.</li>
+        <li>Links to latest released version in previous versions.</li>
+        <li>"Why keep a changelog?" section.</li>
+        <li> New visual identity by @tylerfortune8.</li>
         <li> Version navigation.</li>
         <li>Links to latest released version in previous versions.</li>
         <li>"Why keep a changelog?" section.</li>
     </ul>
 
-   <h2> Removed:</h2>
-    <ul class="removed">
-       <li> Section about "changelog" vs "CHANGELOG".</li>
+
+    <h2>Changed:</h2>
+    <ul class="changed">
+
+        <li> New visual identity by @tylerfortune8.</li>
+        <li> Version navigation.</li>
+        <li>Links to latest released version in previous versions.</li>
+        <li>"Why keep a changelog?" section.</li>
     </ul>
-   <div class="headLine"> <div style="margin-left: 30px"> [0.3.0] - 2015-12-03</div></div>
-     <div class="added">Added</div>
+
+    <h2> Removed:</h2>
+    <ul class="removed">
+        <li> Section about "changelog" vs "CHANGELOG".</li>
+    </ul>
+    <div class="headLine">
+        <div style="margin-left: 30px"> [0.3.0] - 2015-12-03</div>
+    </div>
+    <div>Added</div>
     <ul class="added">
         <li> RU translation from @aishek.</li>
         <li> pt-BR translation from @tallesl.</li>
@@ -180,23 +195,23 @@
     </ul>
 
 
-
 </div>
 
 
 <!-- Общее -->
 <div class="textWindow" onload="windowSize();" id="informationWindow">
-    <div class="headLine">  <a href="https://api.eldis24.ru/">https://api.eldis24.ru/</a> Общая информация по API</div>
+    <div class="headLine"><a href="https://api.eldis24.ru/">https://api.eldis24.ru/</a> Общая информация по API</div>
     <div style="margin-bottom: 40px">
-        <p>Для работы с API необходимо в каждом запросе передавать ключ доступа к API.Ключ передается в заголовке запроса с именем key.
+        <p>Для работы с API необходимо в каждом запросе передавать ключ доступа к API.Ключ передается в заголовке
+            запроса с именем key.
             Все даты, передаваемые/получаемые через json формируются как TimeStamp.</p>
     </div>
     <table>
         <caption><h2>Глобальные переменные передаваемые через URL:</h2></caption>
         <tr>
             <th>Параметр</th>
-            <th >Описание</th>
-            <th >Тип данных</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
         </tr>
         <tr>
             <td>suppressResponseCode</td>
@@ -240,7 +255,7 @@
             <tr>
                 <th>httpStatusCode</th>
                 <th>messageCode</th>
-                <th >message</th>
+                <th>message</th>
 
             </tr>
             <tr>
@@ -274,16 +289,19 @@
 
 <!-- Авторизация -->
 <div class="textWindow" id="loginWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/users/login">https://api.eldis24.ru/api/v1/users/login</a>
         Производит авторизацию пользователя в системе
     </div>
-    <div style="margin-bottom: 40px"> <p>Все методы API будут доступны лишь при удачной авторизации пользователя.
-        При удачной авторизации пользователя в  cookie файле будет возвращен токен доступа  access_token, который необходимо передавать для вызова других методов API.
-        Время жизни токена 1 час, после чего токен будет обновлен и возвращен повторно при следующей активности пользователя.</p>
+    <div style="margin-bottom: 40px"><p>Все методы API будут доступны лишь при удачной авторизации пользователя.
+        При удачной авторизации пользователя в cookie файле будет возвращен токен доступа access_token, который
+        необходимо передавать для вызова других методов API.
+        Время жизни токена 1 час, после чего токен будет обновлен и возвращен повторно при следующей активности
+        пользователя.</p>
     </div>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type:</h4> application/x-www-form-urlencoded
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
@@ -292,13 +310,13 @@
     <table>
         <caption><h2>Parameters:</h2></caption>
 
-        <tr >
+        <tr>
             <th>Параметр</th>
             <th>Передавать через</th>
             <th>Описание</th>
             <th>Тип данных</th>
         </tr>
-        <tr >
+        <tr>
             <td>login</td>
             <td>form</td>
             <td>Логин пользователя</td>
@@ -335,7 +353,7 @@
         <tr>
             <td>200</td>
             <td>4200005</td>
-            <td >Успешно</td>
+            <td>Успешно</td>
         </tr>
         <tr>
             <td>400</td>
@@ -358,12 +376,16 @@
 
 <!-- Выход-->
 <div class="textWindow" id="logoutWindow">
-    <div class="getLine"> <div class="post">GET</div> <a href="https://api.eldis24.ru/api/v1/users/logout">https://api.eldis24.ru/api/v1/users/logout</a> Выход пользователя из системы в контексте текущей сессии</div>
+    <div class="getLine">
+        <div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/users/logout">https://api.eldis24.ru/api/v1/users/logout</a> Выход
+        пользователя из системы в контексте текущей сессии
+    </div>
 
-    <p >Осуществляет выход пользователя из системы в текущей сессии с удалением токена доступа из cookie файла и БД.</p>
+    <p>Осуществляет выход пользователя из системы в текущей сессии с удалением токена доступа из cookie файла и БД.</p>
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -404,11 +426,15 @@
 
 <!-- Глобальный выход-->
 <div class="textWindow" id="logoutGlobalWindow">
-    <div class="getLine"> <div class="post">GET</div> <a href="https://api.eldis24.ru/api/v1/users/logoutGlobal">https://api.eldis24.ru/api/v1/users/logoutGlobal</a> Глобальный выход пользователя со всех устройств</div>
-    <p >Осуществляет глобальный выход пользователя со всех устройств с удалением токена доступа из cookie
+    <div class="getLine">
+        <div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/users/logoutGlobal">https://api.eldis24.ru/api/v1/users/logoutGlobal</a>
+        Глобальный выход пользователя со всех устройств
+    </div>
+    <p>Осуществляет глобальный выход пользователя со всех устройств с удалением токена доступа из cookie
         файла текущей сессии и удалением всех открытых сессий из БД.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -449,11 +475,15 @@
 
 <!-- Доступные объекты-->
 <div class="textWindow" id="objectsWindow">
-    <div class="postLine"> <div class="post">POST</div> <a href="https://api.eldis24.ru/api/v1/objects/list">https://api.eldis24.ru/api/v1/objects/list</a>
-        Получение списка доступных объектов пользователя</div>
-    <p>Осуществляет возможность получения списка доступных объектов пользователя, с возможностью фильтрации данных через пользовательские фильтры, поддерживает поисковые запросы, а так же пагинацию вывода данных.</p>
+    <div class="postLine">
+        <div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/objects/list">https://api.eldis24.ru/api/v1/objects/list</a>
+        Получение списка доступных объектов пользователя
+    </div>
+    <p>Осуществляет возможность получения списка доступных объектов пользователя, с возможностью фильтрации данных через
+        пользовательские фильтры, поддерживает поисковые запросы, а так же пагинацию вывода данных.</p>
     <h2>Headers:</h2>
-        <pre><code >
+        <pre><code>
         <h4>Content-Type:</h4> application/x-www-form-urlencoded
         <h4>key</h4> = "you_key_here"
         <h4>Cookie:</h4> access_token = "you_token_here"
@@ -627,11 +657,14 @@
 
 <!-- Получение информации по заданному объекту-->
 <div class="textWindow" id="getWindow">
-    <div class="getLine"><div class="post">GET</div>  <a href="https://api.eldis24.ru/api/v1/objects/get">https://api.eldis24.ru/api/v1/objects/get</a>
-        Получение информации по заданному объекту</div>
-    <p>  Возвращает информацию для заданного объекта.</p>
+    <div class="getLine">
+        <div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/objects/get">https://api.eldis24.ru/api/v1/objects/get</a>
+        Получение информации по заданному объекту
+    </div>
+    <p> Возвращает информацию для заданного объекта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
         </code></pre>
@@ -718,15 +751,16 @@
 
 <!-- Удаление объекта -->
 <div class="textWindow" id="deleteObjWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/objects/delete">https://api.eldis24.ru/api/v1/objects/delete</a>
         Удаление объекта
     </div>
-    <div style="margin-bottom: 40px"> <p>
+    <div style="margin-bottom: 40px"><p>
         Удаляет указанные объекты и все связанные записи с этими объектами.</p>
     </div>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type:</h4> text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
@@ -762,7 +796,7 @@
         <tr>
             <td>200</td>
             <td>4200005</td>
-            <td >Успешно</td>
+            <td>Успешно</td>
         </tr>
         <tr>
             <td>400</td>
@@ -774,12 +808,12 @@
             <td>4200002</td>
             <td>Авторизация не пройдена</td>
         </tr>
-          <tr>
+        <tr>
             <td>403</td>
             <td>4200003</td>
             <td>Недостаточно прав для совершения данного действия</td>
         </tr>
-          <tr>
+        <tr>
             <td>403</td>
             <td>4200004</td>
             <td>Недостаточно прав для работы с данной записью</td>
@@ -795,10 +829,14 @@
 
 <!-- Получение списка объектов-->
 <div class="textWindow" id="modemsWindow">
-    <div class="getLine"><div class="post">GET</div>  <a href="https://api.eldis24.ru/api/v1/modems/miniListForObject">https://api.eldis24.ru/api/v1/modems/miniListForObject</a>Получение списка модемов на заданном объекте</div>
+    <div class="getLine">
+        <div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/modems/miniListForObject">https://api.eldis24.ru/api/v1/modems/miniListForObject</a>Получение
+        списка модемов на заданном объекте
+    </div>
     <p>Осуществляет возможность получения списка доступных модемов пользователя для указанного объекта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
     </code></pre>
@@ -889,13 +927,14 @@
 
 <!-- Получение списка приборов-->
 <div class="textWindow" id="devicesWindow">
-    <div class="getLine"><div class="post">GET</div>
+    <div class="getLine">
+        <div class="post">GET</div>
         <a href="https://api.eldis24.ru/api/v1/devices/miniListForObject">https://api.eldis24.ru/api/v1/devices/miniListForObject</a>
         Получение списка приборов учёта на заданном объекте
     </div>
     <p>Осуществляет возможность получения списка доступных приборов учёта пользователя для указанного объекта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
     </code></pre>
@@ -987,14 +1026,15 @@
 
 <!-- Методы по работе с точками учета системы-->
 <div class="textWindow" id="miniListForObjectWindow">
-    <div class="getLine"><div class="post">GET</div>
+    <div class="getLine">
+        <div class="post">GET</div>
         <a href="https://api.eldis24.ru/api/v1/tv/miniListForObject">https://api.eldis24.ru/api/v1/tv/miniListForObject</a>
         Получение списка точек учёта на заданном объекте
     </div>
     <p>Осуществляет возможность получения списка доступных точек учёта пользователя для указанного объекта.</p>
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
     </code></pre>
@@ -1089,13 +1129,14 @@
 
 <!-- Получение списка точек учёта для разработки-->
 <div class="textWindow" id="listForDevelopmentWindow">
-    <div class="getLine"><div class="post">GET</div>
+    <div class="getLine">
+        <div class="post">GET</div>
         <a href="https://api.eldis24.ru/api/v1/tv/listForDevelopment">https://api.eldis24.ru/api/v1/tv/listForDevelopment</a>
         Получение списка точек учёта для разработки
     </div>
     <p>Осуществляет возможность получения списка доступных точек учёта пользователя для разработки.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
     </code></pre>
@@ -1147,11 +1188,13 @@
 
 <!-- Организации-->
 <div class="textWindow" id="organizationsWindow">
-    <div class="getLine"><div class="post">GET</div>
+    <div class="getLine">
+        <div class="post">GET</div>
         <a href="https://api.eldis24.ru/api/v1/organizations/miniListForObject">https://api.eldis24.ru/api/v1/organizations/miniListForObject</a>
         Список организаций, имеющие доступ к заданному объекту
     </div>
-    <p>Осуществляет возможность получения списка доступных организаций пользователя, имеющие доступ к указанному объекту.</p>
+    <p>Осуществляет возможность получения списка доступных организаций пользователя, имеющие доступ к указанному
+        объекту.</p>
     <table>
         <caption><h2>Parameters:</h2></caption>
         <tr>
@@ -1214,7 +1257,7 @@
         <tr>
             <td>200</td>
             <td>4200005</td>
-            <td >Успешно</td>
+            <td>Успешно</td>
         </tr>
         <tr>
             <td>400</td>
@@ -1237,14 +1280,16 @@
 
 <!-- Данные-->
 <div class="textWindow" id="dataWindow">
-    <div class="getLine"><div class="post">GET</div>
+    <div class="getLine">
+        <div class="post">GET</div>
         <a href="https://api.eldis24.ru/api/v1/data/normalized">https://api.eldis24.ru/api/v1/data/normalized</a>
         Получение нормализованных данных точки учёта
     </div>
-    <p>Получение нормализованных данных для заданной точки учёта за указанный промежуток времени для заданного типа архива.</p>
+    <p>Получение нормализованных данных для заданной точки учёта за указанный промежуток времени для заданного типа
+        архива.</p>
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -1271,7 +1316,8 @@
                 <table class="tableInTable">
                     Код запрашиваемого типа архива
                     <caption>
-                        Доступные коды для запроса:</caption>
+                        Доступные коды для запроса:
+                    </caption>
                     <tr>
                         <td>30001</td>
                         <td>Текущий значения (Электричество)</td>
@@ -1319,6 +1365,1225 @@
             <td>DateTime</td>
         </tr>
     </table>
+
+    <table>
+        <tr>
+            <th>Параметр</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <!-- wasteWater -->
+        <tr>
+            <td>wasteWater</td>
+            <td>Структура данных сточных вод</td>
+            <td><span class="string">array</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/date</td>
+            <td>Дата архива, приборная</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/dateOnEndOfArchive</td>
+            <td>Дата архива на конец часа</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/dateWithTimeBias</td>
+            <td>Дата архива на конец часа с учётов времени на приборе и часового пояса</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/V</td>
+            <td>Объём, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/V_Total</td>
+            <td>Накопленное значение объёма с момента сброса, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/M</td>
+            <td> Масса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/M_Total</td>
+            <td>Накопленное значение массы с момента сброса, т</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/TGmax</td>
+            <td>Время, в течение которого фактический массовый расход был выше максимального нормированного значения для
+                средства измерения,
+            </td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/TGmin</td>
+            <td>Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного
+                значения для средства измерения, ч
+            </td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/TFault</td>
+            <td>Время функционального отказа, ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/Toff</td>
+            <td> Время отключения питания, ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/TOtherNS</td>
+            <td>Суммарное время других нештатных ситуаций, ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/QntHIP</td>
+            <td>Время нормальной работы, ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/QntHIP_Total</td>
+            <td>Накопленное значение времени нормальной работы с момента сброса, ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/QntP</td>
+            <td>Время отсутствия счёта, ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/QntP_Total</td>
+            <td>Накопленное значение времени отсутствия счёта с момента сброса, ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/ns</td>
+            <td>Наличие нештатной ситуации</td>
+
+            <td><span class="string">bool</span></td>
+        </tr>
+        <tr>
+            <td>wasteWater/empty</td>
+            <td>Указывает на пустой архив</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <!-- coldWater-->
+        <tr>
+            <td>coldWater</td>
+            <td>Структура данных ХВС</td>
+            <td><span class="string">array</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/date</td>
+            <td>Дата архива, приборная</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/dateOnEndOfArchive</td>
+            <td>Дата архива на конец часа</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/dateWithTimeBias</td>
+            <td>Дата архива на конец часа с учётов времени на приборе и часового пояса</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/V</td>
+            <td>Объём, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/V_Total</td>
+            <td>Накопленное значение объёма с момента сброса, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/M</td>
+            <td>Масса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/M_Total</td>
+            <td>Накопленное значение массы с момента сброса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/P</td>
+            <td>Давление, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/TGmax</td>
+            <td>Время, в течение которого фактический массовый расход был выше максимального нормированного значения для
+                средства измерения, ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/TGmin</td>
+            <td>Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного
+                значения для средства измерения, ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/TFault</td>
+            <td>Время функционального отказа, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/Toff</td>
+            <td>Время отключения питания, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/TOtherNS</td>
+            <td>Суммарное время других нештатных ситуаций, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/QntHIP</td>
+            <td>Время нормальной работы, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/QntHIP_Total</td>
+            <td>Накопленное значение времени нормальной работы с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/QntP</td>
+            <td>Время отсутствия счёта, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/QntP_Total</td>
+            <td>Накопленное значение времени отсутствия счёта с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/ns</td>
+            <td>Наличие нештатной ситуации</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <tr>
+            <td>coldWater/empty</td>
+            <td>"empty": "bool" // Указывает на пустой архив</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <!-- hotWater-->
+        <tr>
+            <td>hotWater</td>
+            <td>Структура данных ГВС</td>
+            <td><span class="string">array</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/date</td>
+            <td>Дата архива, приборная</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/dateOnEndOfArchive</td>
+            <td>Дата архива на конец часа</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/dateWithTimeBias</td>
+            <td>Дата архива на конец часа с учётов времени на приборе и часового пояса</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Q1</td>
+            <td>Количество тепловой энергии на подающем трубопроводе, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Q1_Total</td>
+            <td>Накопленное значение потребления тепловой энергии на подающем трубопроводе с момента сброса, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Q2</td>
+            <td>Количество тепловой энергии на обратном трубопроводе, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Q2_Total</td>
+            <td>Накопленное значение потребления тепловой энергии на обратном трубопроводе с момента сброса, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/t1</td>
+            <td>Температура на подающем трубопроводе, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/t2</td>
+            <td>Температура на обратном трубопроводе, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/V1</td>
+            <td>Объём на подающем трубопроводе, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/V1_Total</td>
+            <td>Накопленное значение объёма на подающем трубопроводе с момента сброса, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/V2</td>
+            <td>Объём на обратном трубопроводе, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/V2_Total</td>
+            <td>Накопленное значение объёма на обратном трубопроводе с момента сброса, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/M1</td>
+            <td>Масса на подающем трубопроводе, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/M1_Total</td>
+            <td>Накопленное значение массы на подающем трубопроводе с момента сброса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/M2</td>
+            <td>Масса на обратном трубопроводе, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/M2_Total</td>
+            <td>Накопленное значение массы на обратном трубопроводе с момента сброса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/P1</td>
+            <td>Давление на подающем трубопроводе, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/P2</td>
+            <td>Давление на обратном трубопроводе, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Q</td>
+            <td>Количество тепловой энергии по всей системе, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Q_Total</td>
+            <td>Накопленное значение потребления тепловой энергии по всей системе с момента сброса, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/dt</td>
+            <td>Разность температур, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/dV</td>
+            <td>Разность объёмов, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/dM</td>
+            <td>Разность масс, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/tcw</td>
+            <td>Температура холодной воды, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Pcw</td>
+            <td>Давление холодной воды, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/TGmax</td>
+            <td>Время, в течение которого фактический массовый расход был выше максимального нормированного значения для
+                средства измерения, ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/TGmin</td>
+            <td>Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного
+                значения для средства измерения, ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Tdt</td>
+            <td>Время функционального отказа, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/TFault</td>
+            <td>Время отключения питания, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/Toff</td>
+            <td>Время отключения питания, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/TOtherNS</td>
+            <td>Суммарное время других нештатных ситуаций, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/QntHIP</td>
+            <td> Время нормальной работы, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/QntHIP_Total</td>
+            <td>Накопленное значение времени нормальной работы с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/QntP</td>
+            <td>Время отсутствия счёта, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/QntP_Total</td>
+            <td> Накопленное значение времени отсутствия счёта с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/ns</td>
+            <td>Наличие нештатной ситуации</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <tr>
+            <td>hotWater/empty</td>
+            <td>"empty": "bool" // Указывает на пустой архив</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <!-- heat -->
+        <tr>
+            <td>heat</td>
+            <td> Структура данных тепла</td>
+            <td><span class="string">array</span></td>
+        </tr>
+        <tr>
+            <td>heat/date</td>
+            <td> Дата архива, приборная</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>heat/dateOnEndOfArchive</td>
+            <td>Дата архива на конец часа</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>heat/dateWithTimeBias</td>
+            <td>Дата архива на конец часа с учётов времени на приборе и часового пояса</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>heat/Q1</td>
+            <td>Количество тепловой энергии на подающем трубопроводе, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Q1_Total</td>
+            <td>Накопленное значение потребления тепловой энергии на подающем трубопроводе с момента сброса, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Q2</td>
+            <td>Количество тепловой энергии на обратном трубопроводе, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Q2_Total</td>
+            <td>Накопленное значение потребления тепловой энергии на обратном трубопроводе с момента сброса, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/t1</td>
+            <td>Температура на подающем трубопроводе, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/t2</td>
+            <td>Температура на обратном трубопроводе, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/t3</td>
+            <td>Температура на подпитке, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/V1</td>
+            <td>Объём на подающем трубопроводе, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/V1_Total</td>
+            <td>Накопленное значение объёма на подающем трубопроводе с момента сброса, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/V2</td>
+            <td>Объём на обратном трубопроводе, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/V2_Total</td>
+            <td>Накопленное значение объёма на обратном трубопроводе с момента сброса, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/V3</td>
+            <td>Объём на подпитке, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/V3_Total</td>
+            <td>Накопленное значение объёма на подпитке с момента сброса, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/M1</td>
+            <td>Масса на подающем трубопроводе, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/M1_Total</td>
+            <td>Накопленное значение массы на подающем трубопроводе с момента сброса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/M2</td>
+            <td>Масса на обратном трубопроводе, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/M2_Total</td>
+            <td>Накопленное значение массы на обратном трубопроводе с момента сброса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/M3</td>
+            <td>Масса на подпитке, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/M3_Total</td>
+            <td>Накопленное значение массы на подпитке с момента сброса, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/P1</td>
+            <td>Давление на подающем трубопроводе, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/P2</td>
+            <td>Давление на обратном трубопроводе, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/P3</td>
+            <td>Давление на подпитке трубопроводе, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Q</td>
+            <td>Количество тепловой энергии по всей системе, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Q_Total</td>
+            <td>Накопленное значение потребления тепловой энергии по всей системе с момента сброса, Гкал</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/dt</td>
+            <td>Разность температур, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/dV</td>
+            <td>Разность объёмов, м3</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/dM</td>
+            <td>Разность масс, т</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/ta</td>
+            <td>Температура наружного воздуха, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/tcw</td>
+            <td>Температура холодной воды, °C</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Pcw</td>
+            <td>Давление холодной воды, МПа</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/TGmax</td>
+            <td>Время, в течение которого фактический массовый расход был выше максимального нормированного значения для
+                средства измерения, ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/TGmin</td>
+            <td>Время, в течение которого фактический массовый расход был меньше допустимого минимального нормированного
+                значения для средства измерения, ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Tdt</td>
+            <td>Время, в течение которого разность температур на подающем и обратном трубопроводах была меньше
+                допустимой нормированной разности температур для теплосчетчика, ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/TFault</td>
+            <td>Время функционального отказа, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/Toff</td>
+            <td>Время отключения питания, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/TOtherNS</td>
+            <td> Суммарное время других нештатных ситуаций, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/QntHIP</td>
+            <td> Время нормальной работы, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/QntHIP_Total</td>
+            <td>Накопленное значение времени нормальной работы с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/QntP</td>
+            <td>Время отсутствия счёта, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/QntP_Total</td>
+            <td> Накопленное значение времени отсутствия счёта с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>heat/ns</td>
+            <td>Наличие нештатной ситуации</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <tr>
+            <td>heat/empty</td>
+            <td>"empty": "bool" // Указывает на пустой архив</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+
+        <!-- elect -->
+        Структура данных электричества
+        <tr>
+            <td>electricity</td>
+            <td>Структура данных электричества</td>
+            <td><span class="string">array</span></td>
+        </tr>
+        <tr>
+            <td>electricity/date</td>
+            <td>Дата архива, приборная</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>electricity/dateOnEndOfArchive</td>
+            <td>Дата архива на конец часа</td>
+
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>electricity/dateWithTimeBias</td>
+            <td>Дата архива на конец часа с учётов времени на приборе и часового пояса</td>
+
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap1</td>
+            <td>Активная энергия прямого направления по тарифу 1, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap1_Total</td>
+            <td>Накопленное значение активной энергии прямого направления по тарифу 1 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap2</td>
+            <td>Активная энергия прямого направления по тарифу 2, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap2_Total</td>
+            <td>Накопленное значение активной энергии прямого направления по тарифу 2 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap3</td>
+            <td>Активная энергия прямого направления по тарифу 3, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap3_Total</td>
+            <td>Накопленное значение активной энергии прямого направления по тарифу 3 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap4</td>
+            <td>Активная энергия прямого направления по тарифу 4, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap4_Total</td>
+            <td>Накопленное значение активной энергии обратного направления по тарифу 4 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am1</td>
+            <td>Активная энергия обратного направления по тарифу 1, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am1_Total</td>
+            <td>Накопленное значение активной энергии обратного направления по тарифу 1 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am2</td>
+            <td>Активная энергия обратного направления по тарифу 2, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am2_Total</td>
+            <td>Накопленное значение активной энергии обратного направления по тарифу 2 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am3</td>
+            <td>Активная энергия обратного направления по тарифу 3, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am3_Total</td>
+            <td> Накопленное значение активной энергии обратного направления по тарифу 3 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am4</td>
+            <td>Активная энергия обратного направления по тарифу 4, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am4_Total</td>
+            <td>Накопленное значение активной энергии обратного направления по тарифу 4 с момента сброса, кВт*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp1</td>
+            <td>Реактивная энергия прямого направления по тарифу 1, кВар*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp1_Total</td>
+            <td>Накопленное значение реактивной энергии прямого направления по тарифу 1 с момента сброса, кВар*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp2</td>
+            <td>Реактивная энергия прямого направления по тарифу 2, кВар*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp2_Total</td>
+            <td>Накопленное значение реактивной энергии прямого направления по тарифу 2 с момента сброса, кВар*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp3</td>
+            <td> Реактивная энергия прямого направления по тарифу 3, кВар*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp3_Total</td>
+            <td>Накопленное значение реактивной энергии прямого направления по тарифу 3 с момента сброса, кВар*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp4</td>
+            <td>Реактивная энергия прямого направления по тарифу 4, кВар*ч</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp4_Total</td>
+            <td>Накопленное значение реактивной энергии прямого направления по тарифу 4 с момента сброса, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm1</td>
+            <td>Реактивная энергия обратного направления по тарифу 1, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm1_Total</td>
+            <td>Накопленное значение реактивной энергии обратного направления по тарифу 1 с момента сброса, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm2</td>
+            <td>Реактивная энергия обратного направления по тарифу 2, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm2_Total</td>
+            <td>Накопленное значение реактивной энергии обратного направления по тарифу 2 с момента сброса, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm3</td>
+            <td>Реактивная энергия обратного направления по тарифу 3, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm3_Total</td>
+            <td>Накопленное значение реактивной энергии обратного направления по тарифу 3 с момента сброса, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm4</td>
+            <td>Реактивная энергия обратного направления по тарифу 4, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm4_Total</td>
+            <td>Накопленное значение реактивной энергии обратного направления по тарифу 1 с момента сброса, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap</td>
+            <td>Сумма тарифов активной энергии прямого направления, кВт*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Ap_Total</td>
+            <td>Сумма тарифов накопленных значений активной энергии прямого направления с момента сброса, кВт*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am</td>
+            <td> Сумма тарифов активной энергии обратного направления, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Am_Total</td>
+            <td>Сумма тарифов накопленных значений активной энергии обратного направления с момента сброса, кВт*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp</td>
+            <td>Сумма тарифов реактивной энергии прямого направления, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rp_Total</td>
+            <td>Сумма тарифов накопленных значений реактивной энергии прямого направления с момента сброса, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm</td>
+            <td>Сумма тарифов реактивной энергии обратного направления, кВар*ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Rm_Total</td>
+            <td>Сумма тарифов накопленных значений реактивной энергии обратного направления с момента сброса, кВар*ч
+            </td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Pp</td>
+            <td>Активная мощность прямого направления, кВт</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Pm</td>
+            <td>Активная мощность обратного направления, кВт</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Qp</td>
+            <td>Реактивная мощность прямого направления, кВар</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/Qm</td>
+            <td>Реактивная мощность обратного направления, кВар</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricity/ns</td>
+            <td>Наличие наштатной ситуации</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <!-- currElec -->
+        <tr>
+            <td>electricityCurrent</td>
+            <td>Структура данных электричества – текущие</td>
+            <td><span class="string">array</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/date</td>
+            <td>Дата архива, приборная</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/dateOnEndOfArchive</td>
+            <td>Дата архива на конец часа</td>
+
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/dateWithTimeBias</td>
+            <td>Дата архива на конец часа с учётов времени на приборе и часового пояса</td>
+
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/S1</td>
+            <td>Полная мощность по фазе 1, кВА</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/S2</td>
+            <td>Полная мощность по фазе 2, кВА</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/S3</td>
+            <td>Полная мощность по фазе 3, кВА</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/P1</td>
+            <td>Активная мощность по фазе 1, кВт</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/P2</td>
+            <td>Активная мощность по фазе 2, кВт</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/P3</td>
+            <td>Активная мощность по фазе 3, кВт</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/Q1</td>
+            <td>Реактивная мощность по фазе 1, кВар</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/Q2</td>
+            <td>Реактивная мощность по фазе 2, кВар</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/Q3</td>
+            <td>Реактивная мощность по фазе 3, кВар</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/U1</td>
+            <td>Напряжение по фазе 1, В</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/U2</td>
+            <td>Напряжение по фазе 2, В</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/U3</td>
+            <td>Напряжение по фазе 3, В</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/I1</td>
+            <td>Сила тока по фазе 1, А</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/I2</td>
+            <td>Сила тока по фазе 2, А</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/I3</td>
+            <td>Сила тока по фазе 3, А</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/S</td>
+            <td>Сумма фаз полной мощности, кВА</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/P</td>
+            <td>Сумма фаз активной мощности, кВА</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/Q</td>
+            <td>Сумма фаз реактивной мощности, кВА</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/U</td>
+            <td>Сумма фаз напряжения, В</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/I</td>
+            <td>Сумма фаз силы тока, А</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/F</td>
+            <td>Частота тока, Гц</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/CosPhi1</td>
+            <td>Коэффициент мощности по фазе 1</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/CosPhi2</td>
+            <td>Коэффициент мощности по фазе 2</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/CosPhi3</td>
+            <td>Коэффициент мощности по фазе 1</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/PhiU12</td>
+            <td>Угол между фазными напряжениями фазы 1 и 2</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/PhiU13</td>
+            <td>Угол между фазными напряжениями фазы 1 и 3</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>electricityCurrent/PhiU23</td>
+            <td>Угол между фазными напряжениями фазы 2 и 3</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <!-- gas -->
+        <tr>
+
+            <td>gas</td>
+            <td> Структура данных газа</td>
+            <td><span class="string">array</span></td>
+        </tr>
+        <tr>
+
+            <td>gas/date</td>
+            <td> Дата архива, приборная</td>
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>gas/dateOnEndOfArchive</td>
+            <td>Дата архива на конец часа</td>
+
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>gas/dateWithTimeBias</td>
+            <td> Дата архива на конец часа с учётов времени на приборе и часового пояса/td>
+
+            <td><span class="string">TimeStamp/DateTime</span></td>
+        </tr>
+        <tr>
+            <td>gas/t</td>
+            <td>Температура, °C</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/P</td>
+            <td>Давление, МПа</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/Vp</td>
+            <td>Рабочий объём, м3</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/Vp_Total</td>
+            <td>Накопленное значение рабочего объёма с момента сброса, м3</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/Vc</td>
+            <td>Стандартный объём, м3</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/Vc_Total</td>
+            <td>Накопленное значение стандартного объёма с момента сброса, м3</td>
+
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/TOtherNS</td>
+            <td> Суммарное время других нештатных ситуаций, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/QntHIP</td>
+            <td> Время нормальной работы, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/QntHIP_Total</td>
+            <td>Накопленное значение времени нормальной работы с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/QntP</td>
+            <td>Время отсутствия счёта, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/QntP_Total</td>
+            <td> Накопленное значение времени отсутствия счёта с момента сброса, ч</td>
+            <td><span class="string">double/Nullable</span></td>
+        </tr>
+        <tr>
+            <td>gas/ns</td>
+            <td>Наличие нештатной ситуации</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+        <tr>
+            <td>gas/empty</td>
+            <td>"empty": "bool" // Указывает на пустой архив</td>
+            <td><span class="string">bool</span></td>
+        </tr>
+
+    </table>
+
+
     <h2>Response:</h2>
     <pre><code class="JSON">
     {
@@ -1576,7 +2841,7 @@
     }
     </code></pre>
     <table>
-        <caption><h2>Messages:</h2> </caption>
+        <caption><h2>Messages:</h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -1612,13 +2877,14 @@
 
 <!-- Подключение-->
 <div class="textWindow" id="connectWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/connect">https://api.eldis24.ru/api/v1/tasks/connect</a>
         Постановка задачи на подключение модема к серверу
     </div>
     <p>Осуществляет постановку задач на подключение заданных модемов к серверам.</p>
     <h2>Headers:</h2>
-    <pre><code class="JSON" >
+    <pre><code class="JSON">
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -1702,13 +2968,14 @@
 
 <!-- Отключение модема-->
 <div class="textWindow" id="disconnectWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/disconnect">https://api.eldis24.ru/api/v1/tasks/disconnect</a>
         Постановка задачи на отключение модема от сервера
     </div>
     <p>Осуществляет постановку задач на отключение заданных модемов от серверов.</p>
     <h2>Headers:</h2>
-    <pre><code class="JSON" >
+    <pre><code class="JSON">
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -1789,15 +3056,90 @@
     </table>
 </div>
 
+<!-- Удаление модема-->
+<div class="textWindow" id="modemsDeleteWindow">
+    <div class="postLine"><div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/modems/delete">https://api.eldis24.ru/api/v1/modems/delete</a>
+        Удаление модема
+    </div>
+    <p>Удаляет указанные модемы и все связанные записи с этими модемами.</p>
+    <h2>Headers:</h2>
+    <pre><code class="JSON">
+    <h4>Content-Type</h4> = text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token = "you_token_here"
+    </code></pre>
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "modems": {
+          "delete": [] // Список идентификаторов модемов, которые необходимо удалить (Guid)
+        }
+      }
+    }</code></pre>
+
+    <h2>Response:</h2>
+    <pre> <code class="JSON">
+    {
+      "response": {
+        "modems": {
+          "delete": {}
+        },
+        "messages": [] // <a onclick="messageLink()"> Список сообщений</a>
+      }
+    }</code></pre>
+
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+
+    </table>
+</div>
 <!-- Активация прибора учета -->
 <div class="textWindow" id="activateDeviceWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/activateDevice">https://api.eldis24.ru/api/v1/tasks/activateDevice</a>
         Постановка задачи на активацию прибора учёта
     </div>
     <p>Осуществляет постановку задач на активацию заданных приборов учёта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -1912,15 +3254,89 @@
     </table>
 </div>
 
+<!--  Удаление  прибора -->
+<div class="textWindow" id="devicesDeleteWindow">
+    <div class="postLine"><div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/devices/delete">https://api.eldis24.ru/api/v1/devices/delete</a>
+        Удаление прибора учёта
+    </div>
+    <p>Удаляет указанные приборы учёта и все связанные записи с этими приборами.</p>
+    <h2>Headers:</h2>
+    <pre><code class="JSON">
+    <h4>Content-Type</h4> = text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token = "you_token_here"
+    </code></pre>
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "devices": {
+          "delete": [] // Список идентификаторов приборов учёта, которые необходимо удалить (Guid)
+        }
+      }</code></pre>
+
+    <h2>Response:</h2>
+    <pre> <code class="JSON">
+    {
+      "response": {
+        "devices": {
+          "delete": {}
+        },
+        "messages": [] // <a onclick="messageLink()">Список сообщений</a>
+      }
+    }</code></pre>
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+
+    </table>
+</div>
+
 <!--активация точки учёта -->
 <div class="textWindow" id="activateTVWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/activateTV">https://api.eldis24.ru/api/v1/tasks/activateTV</a>
         Постановка задачи на активацию точки учёта
     </div>
     <p>Осуществляет постановку задач на активацию заданных точек учёта.</p>
     <h2>Headers:</h2>
-    <pre><code class="JSON" >
+    <pre><code class="JSON">
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -2030,7 +3446,8 @@
 
 <!--  Постановка задачи на чтение данных с точки учёта -->
 <div class="textWindow" id="readDataWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/readData">https://api.eldis24.ru/api/v1/tasks/readData</a>
         Постановка задачи на активацию прибора учёта
     </div>
@@ -2133,15 +3550,89 @@
     </table>
 </div>
 
+<!-- Удаление точки учета -->
+<div class="textWindow" id="tvDeleteWindow">
+    <div class="postLine"><div class="post">POST</div>
+        <a href="https://api.eldis24.ru/api/v1/tv/delete">https://api.eldis24.ru/api/v1/tv/delete</a>
+        Удаление точек учёта
+    </div>
+    <p>Удаляет указанные точки учёта и все связанные записи с этими точками.</p>
+    <h2>Headers:</h2>
+    <pre><code class="JSON">
+    <h4>Content-Type</h4> = text/plain
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token = "you_token_here"
+    </code></pre>
+    <h2>Request:</h2>
+    <pre><code class="JSON">
+    {
+      "request": {
+        "tv": {
+          "delete": [] // Список идентификаторов точек учёта, которые необходимо удалить (Guid)
+        }
+      }
+    }</code></pre>
+
+    <h2>Response:</h2>
+    <pre> <code class="JSON">
+    {
+      "response": {
+        "tv": {
+          "delete": {}
+        },
+        "messages": []  // <a onclick="messageLink()">Список сообщений</a>
+      }
+    }</code></pre>
+    <table>
+        <caption><h2>Messages:</h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200003</td>
+            <td>Недостаточно прав для совершения данного действия</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>4200004</td>
+            <td>Недостаточно прав для работы с данной записью</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+
+    </table>
+</div>
 <!--  Постановка задачи на чтение настроечных параметров с прибора учёта -->
 <div class="textWindow" id="readDevicePropertiesWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/readDeviceProperties">https://api.eldis24.ru/api/v1/tasks/readDeviceProperties</a>
         Постановка задачи на активацию прибора учёта
     </div>
     <p>Осуществляет постановку задач на чтение настроечных параметров с заданных приборов учёта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -2172,7 +3663,7 @@
 </code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -2233,13 +3724,14 @@
 
 <!-- Постановка задачи на чтение настроечных параметров с точки учёта -->
 <div class="textWindow" id="readTVPropertiesWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/readTVProperties">https://api.eldis24.ru/api/v1/tasks/readTVProperties</a>
         Постановка задачи на чтение настроечных параметров с точки учёта
     </div>
     <p>Осуществляет постановку задач на чтение настроечных параметров с заданных точек учёта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -2268,7 +3760,7 @@
 </code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -2329,13 +3821,14 @@
 
 <!-- Постановка задачи на запись настроечных параметров прибора учёта -->
 <div class="textWindow" id="writeDevicePropertiesWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/writeDeviceProperties">https://api.eldis24.ru/api/v1/tasks/writeDeviceProperties</a>
         Постановка задачи на активацию прибора учёта
     </div>
     <p>Осуществляет постановку задачи на запись настроечных параметров с заданного прибора учёта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -2370,7 +3863,7 @@
 </code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -2446,13 +3939,14 @@
 
 <!-- Постановка задачи на запись настроечных параметров точки учёта -->
 <div class="textWindow" id="writeTVPropertiesWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/writeTVProperties">https://api.eldis24.ru/api/v1/tasks/writeTVProperties</a>
         Постановка задачи на запись настроечных параметров точки учёта
     </div>
     <p>Осуществляет постановку задачи на запись настроечных параметров с заданной точки учёта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -2502,7 +3996,7 @@
 </code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -2578,14 +4072,15 @@
 
 <!-- Постановка задачи на синхронизацию времени прибора учёта-->
 <div class="textWindow" id="synchronizeTimeWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/synchronizeTime">https://api.eldis24.ru/api/v1/tasks/synchronizeTime</a>
         Постановка задачи на синхронизацию времени прибора учёта
     </div>
     <p> Осуществляет постановку задач синхронизацию времени для заданных приборов учёта.</p>
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -2613,7 +4108,7 @@
     }</code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -2674,13 +4169,14 @@
 
 <!-- Обмен-->
 <div class="textWindow" id="exchangeWindow">
-    <div class="getLine"> <div class="post">GET</div>
+    <div class="getLine">
+        <div class="post">GET</div>
         <a href="https://api.eldis24.ru/api/v1/tasks/exchange">https://api.eldis24.ru/api/v1/tasks/exchange</a>
         Получение обмена сообщениями модема с прибором учёта
     </div>
     <p>Осуществляет возможность получения обмена сообщениями модема с прибором учёта.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -2720,7 +4216,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -2771,15 +4267,144 @@
     </table>
 </div>
 
+<!-- Список задач -->
+<div class="textWindow" id="tasksMiniListWindow">
+    <div class="getLine">
+        <div class="post">GET</div>
+        <a href="https://api.eldis24.ru/api/v1/tasks/miniListForObject">https://api.eldis24.ru/api/v1/tasks/miniListForObject</a>
+        Список задач для объекта
+    </div>
+
+    <p>Получение списка завершённых задач по заданному объекту.</p>
+
+    <h2>Headers:</h2>
+    <pre><code>
+    <h4>key</h4> = "you_key_here"
+    <h4>Cookie</h4> access_token = "you_token_here"
+    </code></pre>
+
+    <table>
+        <caption><h2>URL's parameters:</h2></caption>
+        <tr>
+            <th>Параметр</th>
+            <th>Передавать через</th>
+            <th>Описание</th>
+            <th>Тип данных</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>url</td>
+            <td>Количество записей, выводимых на одной странице.
+                Максимальное значение – 500.
+                Значение по умолчанию – 50.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>url</td>
+            <td>Количество записей, выводимых на одной странице.
+                Максимальное значение – 500.
+                Значение по умолчанию – 50.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>url</td>
+            <td>Количество записей, выводимых на одной странице.
+                Максимальное значение – 500.
+                Значение по умолчанию – 50.
+            </td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>page</td>
+            <td>url</td>
+            <td>Номер отображаемой страницы.
+                Значение по умолчанию – 1.
+            </td>
+            <td>int</td>
+        </tr>
+    </table>
+    <h2>Response:</h2>
+    <pre><code class=JSON>
+    {
+      "response": {
+        "tasks": {
+          "fields": [ // Список доступных столбцов с их настройками отображения
+            {
+              "name": "string", // Название столбца
+              "displayName": "string", // Отображаемое название столбца
+              "ordinalPosition": "byte", // Порядковый номер столбца
+              "width": "short", // Ширина столбца
+              "visible": "bool", // Задает видимость столбца
+              "sortable": "bool", // Задает возможность сортировки данных по столбцу
+              "sorted": "string", // Задает направление сортировки (ASC, DESC)
+              "isSystem": "bool", // Указывает на то, что столбец является системным
+              "dataType": "string" // Тип данных столбца
+            }
+          ],
+          "miniListForObject": [ // Список завершённых задач
+            {
+              "status": "int", //<a onclick="statusLink()"> Статус задачи</a>
+              "command": "string", // Команда
+              "recordName": "string", // Название записи
+              "result": "string", // Результат выполнения
+              "dateOfCompletion": "TimeStamp/DateTime" // Дата завершения
+            }
+          ],
+          "pagination": { // Информация по пагинации
+            "numberOfRows": "int", // Общее количество строк
+            "numberOfPages": "int", // Общее количество страниц
+            "currentPage": "int" // Номер текущей страницы
+          }
+        },
+        "messages": [] // <a onclick="messageLink()"> Список сообщений </a>
+      }
+    }</code></pre>
+
+    <table>
+        <caption><h2>Messages: </h2></caption>
+        <tr>
+            <th>httpStatusCode</th>
+            <th>messageCode</th>
+            <th>message</th>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>4200005</td>
+            <td>Успешно</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>4200000</td>
+            <td>Неверный запрос</td>
+        </tr>
+        <tr>
+            <td>401</td>
+            <td>4200002</td>
+            <td>Авторизация не пройдена</td>
+        </tr>
+
+        <tr>
+            <td>500</td>
+            <td>4200001</td>
+            <td>Возникло необработанное исключение, повторите данное действие чуть позже</td>
+        </tr>
+    </table>
+</div>
 <!-- Создание и удаление тегов -->
 <div class="textWindow" id="changeWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/tags/change">https://api.eldis24.ru/api/v1/tags/change</a>
         Массовое создание и удаление тегов
     </div>
-    <p>  Позволяет выполнить массовую операцию по созданию и удалению тегов для указанного массива записей относящихся к одной сущности.</p>
+    <p> Позволяет выполнить массовую операцию по созданию и удалению тегов для указанного массива записей относящихся к
+        одной сущности.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = application/x-www-form-urlencoded
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -2856,7 +4481,7 @@
     }</code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -2887,13 +4512,15 @@
 
 <!-- Поиск тегов -->
 <div class="textWindow" id="tagsWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/search/tags">https://api.eldis24.ru/api/v1/search/tags</a>
         Поиск тегов доступных пользователю
     </div>
-    <p> Осуществляет поиск доступных пользователю тегов с указанным условием поиска для заданной сущности и поддержкой пагинации.</p>
+    <p> Осуществляет поиск доступных пользователю тегов с указанным условием поиска для заданной сущности и поддержкой
+        пагинации.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = application/x-www-form-urlencoded
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -3004,7 +4631,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3035,13 +4662,14 @@
 
 <!-- Поиск организаций-->
 <div class="textWindow" id="organizationsSearchWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/search/typeObjects">https://api.eldis24.ru/api/v1/search/typeObjects</a>
         Поиск тегов доступных пользователю
     </div>
     <p>Осуществляет поиск типов объекта с указанным условием поиска и поддержкой пагинации.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = application/x-www-form-urlencoded
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -3132,7 +4760,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3158,13 +4786,14 @@
 
 <!-- Поиск типов объектов -->
 <div class="textWindow" id="typeObjectsWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/search/typeObjects">https://api.eldis24.ru/api/v1/search/typeObjects</a>
         Поиск тегов доступных пользователю
     </div>
     <p>Осуществляет поиск типов объекта с указанным условием поиска и поддержкой пагинации.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = application/x-www-form-urlencoded
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -3255,7 +4884,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3281,13 +4910,14 @@
 
 <!-- Поиск режимов -->
 <div class="textWindow" id="modeObjectsWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/search/modeObjects">https://api.eldis24.ru/api/v1/search/modeObjects</a>
         Поиск тегов доступных пользователю
     </div>
     <p>Осуществляет поиск режимов работы объекта с указанным условием поиска и поддержкой пагинации.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = application/x-www-form-urlencoded
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -3377,7 +5007,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3403,14 +5033,15 @@
 
 <!-- Настройка столбцов-->
 <div class="textWindow" id="editWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/columnMappings/edit">https://api.eldis24.ru/api/v1/columnMappings/edit</a>
         Редактирование настроек отображения столбцов
     </div>
     <p>Осуществляет редактирование настроек отображения столбцов в гриде для указанной сущности.
         Позволяет задать сортировку данных, порядок отображения столбцов, видимость столбцов и задать их ширину.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = application/x-www-form-urlencoded
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -3468,7 +5099,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3499,13 +5130,15 @@
 
 <!-- Сброс столбцов-->
 <div class="textWindow" id="resetWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/columnMappings/reset">https://api.eldis24.ru/api/v1/columnMappings/reset</a>
         Сброс текущих настроек отображения столбцов
     </div>
-    <p>Осуществляет сброс текущих настроек отображения столбцов в гриде на системные значения для указанной сущности.</p>
+    <p>Осуществляет сброс текущих настроек отображения столбцов в гриде на системные значения для указанной
+        сущности.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -3542,7 +5175,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3573,15 +5206,17 @@
 
 <!-- Список  фильтров-->
 <div class="textWindow" id="filtersWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/customFilters/list">https://api.eldis24.ru/api/v1/customFilters/list</a>
         Получение всех доступных фильтров
     </div>
-    <p> Осуществляет возможность получения списка всех доступных фильтров заданной сущности с получением готовых системных и пользовательских
+    <p> Осуществляет возможность получения списка всех доступных фильтров заданной сущности с получением готовых
+        системных и пользовательских
         шаблонов. Полное имя URL параметра формируется как filter.list[name].items[name] (где, list[name] и items[name]
         это название фильтров, полученное в json ответе).</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -3639,7 +5274,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3670,13 +5305,14 @@
 
 <!-- Добавление фильтра-->
 <div class="textWindow" id="addWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/customFilters/add">https://api.eldis24.ru/api/v1/customFilters/add</a>
         Создание пользовательского фильтра
     </div>
     <p>Осуществляет создание пользовательского фильтра для указанной сущности.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = Content-Type = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -3731,7 +5367,7 @@
     }</code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3762,15 +5398,17 @@
 
 <!-- Редактирование фильтра-->
 <div class="textWindow" id="filtersEditWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/customFilters/edit">https://api.eldis24.ru/api/v1/customFilters/edit</a>
         Сброс текущих настроек отображения столбцов
     </div>
-    <p>Осуществляет сброс текущих настроек отображения столбцов в гриде на системные значения для указанной сущности.</p>
+    <p>Осуществляет сброс текущих настроек отображения столбцов в гриде на системные значения для указанной
+        сущности.</p>
 
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type</h4> = text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
@@ -3828,7 +5466,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3860,13 +5498,14 @@
 
 <!-- Удаление фильтра -->
 <div class="textWindow" id="deleteFilterWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/customFilters/delete">https://api.eldis24.ru/api/v1/customFilters/delete</a>
         Удаление пользовательского фильтра
     </div>
     <p>Осуществляет удаление пользовательского фильтра для указанной сущности.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -3912,7 +5551,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -3943,13 +5582,15 @@
 
 <!-- Настройка системы -->
 <div class="textWindow" id="settingsWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/settings/getMethodObjectsMapping">https://api.eldis24.ru/api/v1/settings/getMethodObjectsMapping</a>
         Получение отображения элементов страницы
     </div>
-    <p> Осуществляет возможность получения списка отображения объектов/элементов страницы для заданного метода с учётом пользователя, его ролей и тарифа.</p>
+    <p> Осуществляет возможность получения списка отображения объектов/элементов страницы для заданного метода с учётом
+        пользователя, его ролей и тарифа.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -3992,7 +5633,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4023,13 +5664,15 @@
 
 <!-- Получение списка доступных главных страниц пользователя -->
 <div class="textWindow" id="dashboardsWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/dashboards/list">https://api.eldis24.ru/api/v1/dashboards/list</a>
         Получение списка доступных главных страниц пользователя
     </div>
-    <p>Осуществляет возможность получения списка доступных главных страниц пользователя, которые отсортированы в порядке их создания.</p>
+    <p>Осуществляет возможность получения списка доступных главных страниц пользователя, которые отсортированы в порядке
+        их создания.</p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -4053,7 +5696,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4080,13 +5723,15 @@
 
 <!-- Список виджетов -->
 <div class="textWindow" id="widgetsWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/widgets/list">https://api.eldis24.ru/api/v1/widgets/list</a>
         Получение списка доступных пользователю виджетов
     </div>
-    <p>  Осуществляет возможность получения списка доступных пользователю виджетов, которые еще не добавлены на заданной странице сущности. </p>
+    <p> Осуществляет возможность получения списка доступных пользователю виджетов, которые еще не добавлены на заданной
+        странице сущности. </p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -4117,7 +5762,7 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
+                - Объекты (<a onclick="searchTypeObj"> Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
@@ -4149,7 +5794,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4186,14 +5831,16 @@
 
 <!-- Доступные пользователю виджеты -->
 <div class="textWindow" id="usersWidgetsWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/widgets/userList">https://api.eldis24.ru/api/v1/widgets/userList</a>
         Получение списка виджетов пользователя
     </div>
-    <p>  Осуществляет возможность получения списка виджетов пользователя, которые размещены на странице заданной сущности. </p>
+    <p> Осуществляет возможность получения списка виджетов пользователя, которые размещены на странице заданной
+        сущности. </p>
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
     </code></pre>
@@ -4225,7 +5872,7 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
+                - Объекты (<a onclick="searchTypeObj"> Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
@@ -4272,7 +5919,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4304,15 +5951,17 @@
 
 <!-- Изменить виджеты -->
 <div class="textWindow" id="changeWidgetsWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/widgets/change">https://api.eldis24.ru/api/v1/widgets/change</a>
         Добавление/удаление виджетов и изменение их порядка
     </div>
-    <p>  Осуществляет добавление и удаление виджетов пользователя на странице заданной сущности, а так же предоставляет возможность изменения порядка отображения виджетов на странице.
+    <p> Осуществляет добавление и удаление виджетов пользователя на странице заданной сущности, а так же предоставляет
+        возможность изменения порядка отображения виджетов на странице.
         Виджеты, которые находились на странице, но не были переданы в запрос, будут удалены </p>
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type:</h4> text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
@@ -4345,16 +5994,13 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
+                - Объекты (<a onclick="searchTypeObj"> Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
             <td>Guid</td>
         </tr>
     </table>
-
-
-
 
 
     <h2>Request:</h2>
@@ -4390,7 +6036,7 @@
     }</code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4426,13 +6072,15 @@
 
 <!-- Сброс виджетов -->
 <div class="textWindow" id="resetWidgetsWindow">
-    <div class="getLine"> <div class="post">Get</div>
+    <div class="getLine">
+        <div class="post">Get</div>
         <a href="https://api.eldis24.ru/api/v1/widgets/reset">https://api.eldis24.ru/api/v1/widgets/reset</a>
         Сброс настроек виджетов на значения по умолчанию
     </div>
-    <p>   Осуществляет полный сброс настроек виджетов с удалением пользовательских виджетов на значения по умолчанию для заданной страницы сущности. </p>
+    <p> Осуществляет полный сброс настроек виджетов с удалением пользовательских виджетов на значения по умолчанию для
+        заданной страницы сущности. </p>
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>key</h4> = "you_key_here"
     <h4>Cookie</h4> access_token = "you_token_here"
     </code></pre>
@@ -4478,7 +6126,7 @@
 
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4517,15 +6165,16 @@
 
 <!-- Копировать виджеты-->
 <div class="textWindow" id="copyToDashboardWindow">
-    <div class="postLine"> <div class="post">POST</div>
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/widgets/copyToDashboard">https://api.eldis24.ru/api/v1/widgets/copyToDashboard</a>
         Копирование виджета на главную страницу
     </div>
-    <p>  Осуществляет копирование виджета на главную страницу</p>
+    <p> Осуществляет копирование виджета на главную страницу</p>
 
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type:</h4> text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
@@ -4558,15 +6207,13 @@
             <td>additionalID</td>
             <td>url</td>
             <td>Дополнительный идентификатор фильтрации списка виджетов.
-                - Объекты (<a onclick="searchTypeObj">  Тип объекта </a>);
+                - Объекты (<a onclick="searchTypeObj"> Тип объекта </a>);
                 - Приборы учёта (тип прибора);
                 - Точки учёта (ресурс);
             </td>
             <td>Guid</td>
         </tr>
     </table>
-
-
 
 
     <h2>Request:</h2>
@@ -4603,7 +6250,7 @@
     }</code></pre>
 
     <table>
-        <caption><h2>Messages: </h2> </caption>
+        <caption><h2>Messages: </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4663,16 +6310,17 @@
 </div>
 
 <!-- получить номер-->
-<div class="textWindow"  id="numberWindow">
-    <div class="postLine"> <div class="post">POST</div>
+<div class="textWindow" id="numberWindow">
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/simCards/getPhoneByICCID">https://api.eldis24.ru/api/v1/simCards/getPhoneByICCID</a>
         Получение номера телефона по номеру ICCID
     </div>
-    <p>  Осуществляет получение телефонных номеров по номерам ICCID.</p>
+    <p> Осуществляет получение телефонных номеров по номерам ICCID.</p>
 
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type:</h4> text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
@@ -4706,7 +6354,7 @@
     }</code></pre>
 
     <table>
-        <caption><h2>Messages </h2> </caption>
+        <caption><h2>Messages </h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4742,16 +6390,17 @@
 </div>
 
 <!-- получить ICCID-->
-<div class="textWindow"  id="iccidWindow">
-    <div class="postLine"> <div class="post">POST</div>
+<div class="textWindow" id="iccidWindow">
+    <div class="postLine">
+        <div class="post">POST</div>
         <a href="https://api.eldis24.ru/api/v1/simCards/getICCIDByPhone">https://api.eldis24.ru/api/v1/simCards/getICCIDByPhone</a>
         Получение номера ICCID по номеру телефона
     </div>
-    <p>  Осуществляет получение номеров ICCID по телефонным номерам.</p>
+    <p> Осуществляет получение номеров ICCID по телефонным номерам.</p>
 
 
     <h2>Headers:</h2>
-    <pre><code >
+    <pre><code>
     <h4>Content-Type:</h4> text/plain
     <h4>key</h4> = "you_key_here"
     <h4>Cookie:</h4> access_token = "you_token_here"
@@ -4786,7 +6435,7 @@
 </code></pre>
 
     <table>
-        <caption><h2>Messages:</h2> </caption>
+        <caption><h2>Messages:</h2></caption>
         <tr>
             <th>httpStatusCode</th>
             <th>messageCode</th>
@@ -4822,7 +6471,7 @@
 </div>
 
 <!-- Status-коды сущностей-->
-<div class="textWindow"  id="statusWindow">
+<div class="textWindow" id="statusWindow">
     <div style="margin-top: 30px">
         <table>
             <caption><h2>Модемы:</h2></caption>
@@ -4885,7 +6534,7 @@
         <table>
             <caption><h2>Точки учета:</h2></caption>
             <tr>
-                <th >Статус</th>
+                <th>Статус</th>
                 <th>Описание</th>
             </tr>
             <tr>
@@ -4920,12 +6569,45 @@
                 <td>Неактивна</td>
             </tr>
         </table>
+        <table>
+            <caption>Задачи:</caption>
+            <tr>
+                <th>Статус</th>
+                <th>Описание</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>В ожидании</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Удачно</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Неудачно</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>В обработке</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Частично</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Отменена</td>
+            </tr>
+        </table>
     </div>
 </div>
 
 <!-- Сообщения -->
-<div class="textWindow"  id="messagesWindow">
-    <div class="headLine"><div style="margin-left: 30px">Структура сообщений</div></div>
+<div class="textWindow" id="messagesWindow">
+    <div class="headLine">
+        <div style="margin-left: 30px">Структура сообщений</div>
+    </div>
     <h2>Response:</h2>
     <pre><code class="JSON">
     {
@@ -4941,13 +6623,14 @@
       ]
     }</code></pre>
 </div>
-<!-- Конец Блока Аккордеон -->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" ></script><script type="text/javascript">
+<script type="text/javascript"></script>
+<script type="text/javascript">
     $(document).ready(function () {
-        $('#menu> li.sub> a').click(function(){
+        $('#menu> li.sub> a').click(function () {
             $('#menu li ul').slideUp();
-            if ($(this).next().is(":visible")){
+            if ($(this).next().is(":visible")) {
                 $(this).next().slideUp();
             } else {
                 $(this).next().slideToggle();
@@ -4955,22 +6638,23 @@
             $('#menu li a').removeClass('active');
             $(this).addClass('active');
         });
-        $('.sub ul li a').click(function(){
+        $('.sub ul li a').click(function () {
             var subIndex = $('.sub ul li a').index(this);
             $('.sub ul li a').removeClass('active');
             $(this).addClass('active');
         });
-        $('#menu> li').click(function(){
-         //   $('.sub ul li a').removeClass('active');
+        $('#menu> li').click(function () {
+            //   $('.sub ul li a').removeClass('active');
             $(this).addClass('active');
         });
     });
 </script>
-<script type="text/javascript" ></script><script type="text/javascript">
+<script type="text/javascript"></script>
+<script type="text/javascript">
     $(document).ready(function () {
-        $('#menu> li.unSub> a').click(function(){
+        $('#menu> li.unSub> a').click(function () {
             $('#menu li ul').slideUp();
-            if ($(this).next().is(":visible")){
+            if ($(this).next().is(":visible")) {
                 $(this).next().slideUp();
             } else {
                 $(this).next().slideToggle();
@@ -4978,12 +6662,12 @@
             $('#menu li a').removeClass('active');
             $(this).addClass('active');
         });
-        $('.sub ul li a').click(function(){
+        $('.sub ul li a').click(function () {
             var subIndex = $('.unSub ul li a').index(this);
             $('.unSub ul li a').removeClass('active');
             $(this).addClass('active');
         });
-        $('#menu> li').click(function(){
+        $('#menu> li').click(function () {
             //   $('.sub ul li a').removeClass('active');
             $(this).addClass('active');
         });

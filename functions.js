@@ -50,6 +50,7 @@ function statusLink() {
     }
     var messageWindow=document.getElementById("status");
     messageWindow.firstElementChild.click();
+    
 }
 function searchTypeObj() {
     var window=document.getElementsByClassName("textWindow");
