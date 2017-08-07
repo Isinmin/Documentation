@@ -44,12 +44,13 @@ function messageLink() {
     messageWindow.firstElementChild.click();
 }
 function statusLink() {
-    var window=document.getElementsByClassName("textWindow");
-    for(i=0; i<window.length; i++){
-        window[i].display="none";
+    var allWindows=document.getElementsByClassName("textWindow");
+    for(i=0; i<allWindows.length; i++){
+        allWindows[i].display="none";
     }
     var messageWindow=document.getElementById("status");
     messageWindow.firstElementChild.click();
+
     
 }
 function searchTypeObj() {
@@ -67,6 +68,7 @@ function modeObj() {
     }
     var messageWindow=document.getElementById("modeObjects");
     messageWindow.firstElementChild.click();
+    window.scrollBy(0, 0)
 }
 
 function createUrl(x) {
@@ -75,7 +77,7 @@ function createUrl(x) {
     history.pushState(null, null, myUrl )
    
 }
-function get_url_var() {
+function getUrlVar() {
     var tmp = new Array();
     var tmp2 = new Array();
     var param = new Array();
@@ -85,6 +87,7 @@ function get_url_var() {
         tmp = (get.substr(1)).split('?');
         for (var i = 0; i < tmp.length; i++) {
             tmp2 = tmp[i].split('=');
+        }
             var smth=document.getElementById(tmp2[1]);
             var father=smth.parentNode;
             var grandFather=father.parentNode;
@@ -92,8 +95,26 @@ function get_url_var() {
            grandFather.click();
             document.getElementById(tmp2[1]).className="active";
             document.getElementById(tmp2[1]).click();
-        }
+        
 
     }
     else { document.getElementById("changeLog").click(); }
+}
+function scrollToTOp() {
+    window.scrollTo(0, 0);
+}
+function scrollToModems() {
+    window.scrollTo(0, 0);
+}
+function scrollToDevices() {
+    window.scrollTo(0, +250);
+}
+function scrollToTV() {
+    window.scrollTo(0, +500);
+}
+function scrollToOrganisation() {
+    window.scrollTo(0, +750);
+}
+function scrollToOrganisation() {
+    window.scrollTo(0, +750);
 }
